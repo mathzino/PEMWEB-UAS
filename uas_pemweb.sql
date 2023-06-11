@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 07.56
+-- Waktu pembuatan: 11 Jun 2023 pada 09.46
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -171,7 +171,7 @@ CREATE TABLE `toko` (
   `toko_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
-  `owner` varchar(100) NOT NULL,
+  `owner` int(11) NOT NULL,
   `image_profile` text NOT NULL,
   `status` int(11) NOT NULL,
   `pendapatan_total` int(11) NOT NULL
@@ -182,7 +182,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`toko_id`, `name`, `alamat`, `owner`, `image_profile`, `status`, `pendapatan_total`) VALUES
-(1, 'toko 1', 'Jl rungkut', 'owner toko 1', 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', 1, 0);
+(1, 'toko 1', 'Jl rungkut', 1, 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -283,7 +283,8 @@ ALTER TABLE `star`
 -- Indeks untuk tabel `toko`
 --
 ALTER TABLE `toko`
-  ADD PRIMARY KEY (`toko_id`);
+  ADD PRIMARY KEY (`toko_id`),
+  ADD KEY `fk_toko_owner` (`owner`);
 
 --
 -- Indeks untuk tabel `transaction`
@@ -387,6 +388,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `star`
   ADD CONSTRAINT `fk_star_product` FOREIGN KEY (`id_product`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `toko`
+--
+ALTER TABLE `toko`
+  ADD CONSTRAINT `fk_toko_owner` FOREIGN KEY (`owner`) REFERENCES `seller` (`id_seller`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `transaction`
