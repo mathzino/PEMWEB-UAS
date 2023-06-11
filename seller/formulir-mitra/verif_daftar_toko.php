@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $img_profile = $_FILES['image_profile'];
 
     $extension = explode('/', $img_profile['type'])[1];
-    $nama_file = $namatoko . '_' . time() . '.' . $extension;
+    $nama_file = $namatoko . '_' . microtime() . '.' . $extension;
     $tmp = $img_profile['tmp_name'];
 
     $directory_upload = "../assets/";
