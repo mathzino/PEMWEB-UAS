@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // eksekusi query
         $result = mysqli_query(connection(), $query);
         if ($result) {
+            $inserted_id = mysqli_insert_id(connection());
+            $_SESSION['id_toko'] = $inserted_id;
             header('Location: ../beranda-mitra/?status=daftar_toko');
         } else {
             $status = 'err';
