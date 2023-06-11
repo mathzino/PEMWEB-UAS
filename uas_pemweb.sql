@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 09.46
+-- Waktu pembuatan: 11 Jun 2023 pada 10.06
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -131,6 +131,7 @@ INSERT INTO `product_uom` (`id_product_uom`, `uom`) VALUES
 CREATE TABLE `seller` (
   `id_seller` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -139,8 +140,8 @@ CREATE TABLE `seller` (
 -- Dumping data untuk tabel `seller`
 --
 
-INSERT INTO `seller` (`id_seller`, `username`, `email`, `password`) VALUES
-(1, 'username', 'test@gmail.com', 'test123');
+INSERT INTO `seller` (`id_seller`, `username`, `name`, `email`, `password`) VALUES
+(1, 'username', 'name', 'test@gmail.com', 'test123');
 
 -- --------------------------------------------------------
 
