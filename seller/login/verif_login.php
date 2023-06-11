@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) == 1) {
         while ($row = mysqli_fetch_assoc($result)) {
             if (password_verify($password, $row['password'])) {
-                $_SESSION['id'] = $row['id'];
+                $_SESSION['id'] = $row['id_seller'];
                 $_SESSION['username'] = $row['username'];
                 header("Location:../formulir-mitra");
             } else {
