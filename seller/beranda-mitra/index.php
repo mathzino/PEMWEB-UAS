@@ -46,9 +46,9 @@ if (!isset($_SESSION['id_toko'])) {
         <?php while ($data = mysqli_fetch_array($result)) : ?>
             <div class="frame-714">
                 <div class="frame-16 foto-profil">
-                    <img src="../assets/<?= $data['image_profile'] ?>" alt="Profil" />
+                    <img src="../assets/toko/<?= $data['image_profile'] ?>" alt="Profil" />
                     <div class="frame-15">
-                        <div class="rico-putera-anugrah valign-text-middle"><?= $data['name'] ?></div>
+                        <div class="valign-text-middle" style="font-weight: bold;font-size: 1.25rem;"><?= $data['name'] ?></div>
                         <div class="frame-701">
                             <div class="ellipse-11"></div>
                             <div class="online valign-text-middle">Online</div>
@@ -58,10 +58,10 @@ if (!isset($_SESSION['id_toko'])) {
             </div>
         <?php endwhile; ?>
         <div class="frame-container">
-            <img class="frame" src="./product-active.svg" alt="Frame 716" style="border-bottom: 2px solid #3B82F6;" />
-            <a href="../notifikasi/"><img class="frame" src="./notification.svg" alt="Frame 56" style="border-bottom: 2px solid #0002;" /></a>
-            <a href="../etalase/"><img class="frame" src="./catalog.svg" alt="Frame 57" style="border-bottom: 2px solid #0002;" /></a>
-            <a href="../penjualan/"><img class="frame-717" src="./stats.svg" alt="Frame 717" style="border-bottom: 2px solid #0002;" /></a>
+            <img class="frame" src="../assets/svg/product-active.svg" alt="Frame 716" style="border-bottom: 2px solid #3B82F6;" />
+            <a href="../notifikasi/"><img class="frame" src="../assets/svg/notification.svg" alt="Frame 56" style="border-bottom: 2px solid #0002;" /></a>
+            <a href="../etalase/"><img class="frame" src="../assets/svg/catalog.svg" alt="Frame 57" style="border-bottom: 2px solid #0002;" /></a>
+            <a href="../penjualan/"><img class="frame-717" src="../assets/svg/stats.svg" alt="Frame 717" style="border-bottom: 2px solid #0002;" /></a>
         </div>
         <div style="background-color: #DBEAFE;width: 100%;min-height: 100vh;padding: .75rem;">
             <div className="hover:cursor-pointer hover:scale-95" style="padding: .75rem;background-color: white;border-radius: .75rem;border: 2px solid #3B82F633;border-style: dashed;">
@@ -80,7 +80,7 @@ if (!isset($_SESSION['id_toko'])) {
             ?>
             <?php if (mysqli_num_rows($result_produk) == 0) : ?>
                 <div style="padding: 4rem;margin: 1.5rem 0;border-radius: .75rem;text-align: center;display: flex;justify-content: center;align-items: center;background-color: white;">
-                    <p className="text-sm text-mygreen_dark" style="font-size: .75rem;color: #3B82F6;">
+                    <p style="font-size: .75rem;color: #3B82F6;">
                         Mulai tambahkan jualan untuk menampilkan produk anda!
                     </p>
                 </div>
@@ -116,7 +116,7 @@ if (!isset($_SESSION['id_toko'])) {
                                         </svg>
                                     <?php endfor; ?>
                                     <?php if ($star_count == 0) : ?>
-                                        <p className="text-xs font-light text-mygreen_dark" style="font-size: 0.75rem;line-height: 1rem;font-weight: 400;color: #3B82F6;">
+                                        <p style="font-size: 0.75rem;line-height: 1rem;font-weight: 400;color: #3B82F6;">
                                             No Review Yet.
                                         </p>
                                     <?php endif; ?>
@@ -125,7 +125,7 @@ if (!isset($_SESSION['id_toko'])) {
                                     <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.25 3.24501L10.5 0.995012C10.4739 0.917394 10.4232 0.85045 10.3554 0.804405C10.2877 0.758359 10.2068 0.735744 10.125 0.740012H1.87502C1.79325 0.735744 1.71232 0.758359 1.64461 0.804405C1.5769 0.85045 1.52612 0.917394 1.50002 0.995012L0.750024 3.24501C0.744621 3.28483 0.744621 3.32519 0.750024 3.36501V5.61501C0.750024 5.71447 0.789532 5.80985 0.859859 5.88018C0.930185 5.9505 1.02557 5.99001 1.12502 5.99001H1.50002V9.74001H2.25002V5.99001H4.50002V9.74001H10.5V5.99001H10.875C10.9745 5.99001 11.0699 5.9505 11.1402 5.88018C11.2105 5.80985 11.25 5.71447 11.25 5.61501V3.36501C11.2554 3.32519 11.2554 3.28483 11.25 3.24501ZM9.75002 8.99001H5.25002V5.99001H9.75002V8.99001ZM10.5 5.24001H9.00002V3.74001H8.25002V5.24001H6.37502V3.74001H5.62502V5.24001H3.75002V3.74001H3.00002V5.24001H1.50002V3.42501L2.14502 1.49001H9.85502L10.5 3.42501V5.24001Z" fill="#3B82F6" />
                                     </svg>
-                                    <p className="font-normal text-mygreen_dark text-xs" style="color: #3B82F6;font-size: 0.75rem;line-height: 1rem"><?= $data_produk['toko_name'] ?></p>
+                                    <p style="color: #3B82F6;font-size: 0.75rem;line-height: 1rem"><?= $data_produk['toko_name'] ?></p>
                                 </div>
                             </div>
                         </a>
