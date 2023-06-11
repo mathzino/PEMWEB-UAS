@@ -35,7 +35,9 @@ if (!isset($_SESSION['id_toko'])) {
     <div class="etalase screen">
         <div class="frame-715">
             <div class="toko-kamu valign-text-middle">Toko Kamu</div>
-            <img class="settings" src="settings.png" alt="setting" />
+            <a href="../setting">
+                <img src="settings.png" width="20" height="20" alt="setting" />
+            </a>
         </div>
         <?php
         //proses menampilkan data dari database:

@@ -3,6 +3,8 @@ session_start();
 include '../../conn.php';
 if (!isset($_SESSION['id'])) {
   header("Location: ../login");
+} elseif (isset($_SESSION['id_toko'])) {
+  header("Location: ../beranda-mitra");
 }
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 ?>
