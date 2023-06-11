@@ -6,14 +6,6 @@
   visibility: hidden;
 }
 
-.foto-profil img {
-  height: 50px;
-  min-width: 50px;
-  object-fit: cover;
-  position: relative;
-  border-radius: 100%;
-}
-
 .etalase {
   align-items: center;
   background-color: #ffffff;

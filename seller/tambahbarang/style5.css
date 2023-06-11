@@ -1,26 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 body {
-  background-color: #dbeafe;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .container {
-  width: 300px;
-  margin-left: 500px;
-  margin-right: 100px;
-  margin-bottom: 100px;
-  margin-top: 100px;
-  padding: 20px;
   background-color: #dbeafe;
-  border: 1px solid #dbeafe;
-  border-radius: 5px;
-  font-family: 'Inter', sans-serif;
+  border: 1px none;
+  display: flex;
+  flex-direction: column;
+  height: 667px;
+  width: 375px;
+  margin: auto;
+  gap: 1rem;
+  padding: 1.5rem;
 }
 
-.gambar{
-  height: 180px;
-  min-width: 180px;
+.gambar {
+  height: 100px;
+  margin: 2rem 0;
+  min-width: 100px;
   object-fit: cover;
   position: relative;
 }
@@ -38,7 +37,7 @@ body {
   padding: 15px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 label {
@@ -46,29 +45,36 @@ label {
   font-weight: bold;
 }
 
-input[type="text"]{
+input[type="text"] {
   width: 100%;
   padding: 15px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-
-input[type="number"]{
+input[type="select"] {
   width: 100%;
   padding: 15px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-select[type="text"]{
+input[type="number"] {
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-family: "Inter", sans-serif;
+}
+
+select[type="text"] {
   width: 105%;
   padding: 15px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 input[type="submit"] {
@@ -80,10 +86,10 @@ input[type="submit"] {
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: bold;
 }
 
 input[type="submit"]:hover {
-  background-color: #0099FF;
+  background-color: #0099ff;
 }

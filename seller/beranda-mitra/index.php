@@ -36,7 +36,7 @@ if (!isset($_SESSION['id_toko'])) {
         <div class="frame-715">
             <div class="toko-kamu valign-text-middle">Toko Kamu</div>
             <a href="../setting">
-                <img src="settings.png" width="20" height="20" alt="setting" />
+                <img src="../assets/svg/settings.png" width="20" height="20" alt="setting" />
             </a>
         </div>
         <?php
@@ -47,8 +47,8 @@ if (!isset($_SESSION['id_toko'])) {
         ?>
         <?php while ($data = mysqli_fetch_array($result)) : ?>
             <div class="frame-714">
-                <div class="frame-16 foto-profil">
-                    <img src="../assets/toko/<?= $data['image_profile'] ?>" alt="Profil" />
+                <div class="frame-16">
+                    <img src="../assets/toko/<?= $data['image_profile'] ?>" alt="Profil" style="height: 50px;min-width: 50px;object-fit: cover;position: relative;border-radius: 100%;" />
                     <div class="frame-15">
                         <div class="valign-text-middle" style="font-weight: bold;font-size: 1.25rem;"><?= $data['name'] ?></div>
                         <div class="frame-701">
