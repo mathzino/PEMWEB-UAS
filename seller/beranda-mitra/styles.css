@@ -2,211 +2,219 @@
 
 .hidden,
 .hidden * {
-	pointer-events: none;
-	visibility: hidden;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.foto-profil img {
+  height: 50px;
+  min-width: 50px;
+  object-fit: cover;
+  position: relative;
+  border-radius: 100%;
 }
 
 .etalase {
-	align-items: center;
-	background-color: #ffffff;
-	border: 1px none;
-	display: flex;
-	flex-direction: column;
-	height: 667px;
-	width: 375px;
-	margin: auto;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px none;
+  display: flex;
+  flex-direction: column;
+  height: 667px;
+  width: 375px;
+  margin: auto;
 }
 
 .frame-container {
-	align-items: flex-start;
-	display: flex;
-	min-width: 375px;
+  align-items: flex-start;
+  display: flex;
+  min-width: 375px;
 }
 .frame {
-	height: 50px;
-	width: 94px;
+  height: 50px;
+  width: 94px;
 }
 
 .frame-717 {
-	height: 50px;
-	width: 93px;
+  height: 50px;
+  width: 93px;
 }
 
 .frame-714 {
-	align-items: center;
-	background-color: #ffffff;
-	display: flex;
-	gap: 109px;
-	padding: 12px 10px 20px;
-	position: relative;
-	width: 375px;
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  gap: 109px;
+  padding: 12px 10px 20px;
+  position: relative;
+  width: 375px;
 }
 
 .frame-16 {
-	align-items: center;
-	display: flex;
-	gap : 10px;
-	position: relative;
-	width: fit-content;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  width: fit-content;
 }
 
 .settings {
-	height: 15px;
-	min-width: 20px;
-	position: relative;
+  height: 15px;
+  min-width: 20px;
+  position: relative;
 }
 
 .portrait-of-happy-smiley-man {
-	height: 50px;
-	min-width: 50px;
-	object-fit: cover;
-	position: relative;
+  height: 50px;
+  min-width: 50px;
+  object-fit: cover;
+  position: relative;
 }
 
 .frame-15 {
-	align-items: flex-start;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	width: fit-content;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
 }
 
 .frame-701 {
-	align-items: center;
-	display: flex;
-	gap: 4px;
-	position: relative;
-	width: fit-content;
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  position: relative;
+  width: fit-content;
 }
 
 .valign-text-middle {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .online {
-	color: black;
-	font-family: var(--font-family-inter);
-	font-size: var(--font-size-m2);
-	font-weight: 400;
-	letter-spacing: 0.2px;
-	line-height: 14px;
-	margin-top: -1px;
-	position: relative;
-	white-space: nowrap;
-	width: fit-content;
+  color: black;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m2);
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 14px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
 }
 
-.ellipse-11{
-	background-color: blue;
-	border-radius: 4px;
-	height: 8px;
-	min-width: 8px;
-	position: relative;
+.ellipse-11 {
+  background-color: blue;
+  border-radius: 4px;
+  height: 8px;
+  min-width: 8px;
+  position: relative;
 }
 
 .rico-putera-anugrah {
-	color: black;
-	font-family: var(--font-family-inter);
-	font-size: var(--font-size-xl2);
-	font-weight: 600;
-	letter-spacing: 0.2px;
-	line-height: 19.6px;
-	margin-top: -1px;
-	position: relative;
-	white-space: nowrap;
-	width: fit-content;
+  color: black;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl2);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 19.6px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
 }
 
-.frame-715{
-	align-items: center;
-	background-color: #ffffff;
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	position: relative;
-	width: 375px;
+.frame-715 {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+  width: 375px;
 }
 
 .toko-kamu {
-	color: black;
-	font-family: var(--font-family-inter);
-	font-size: var(--font-size-xxl);
-	font-weight: 700;
-	letter-spacing: 0.2px;
-	line-height: 22.4px;
-	margin-top: -1px;
-	position: relative;
-	white-space: nowrap;
-	width: fit-content;
+  color: black;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 22.4px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
 }
 
-.frame-702{
-	height: 15px;
-	min-width: 59px;
-	position: relative;
+.frame-702 {
+  height: 15px;
+  min-width: 59px;
+  position: relative;
 }
 
 .frame-718 {
-	align-items: center;
-	background-color: #ffffff;
-	border: 1px dashed;
-	border-color:  #191970;
-	border-radius: 32px;
-	display: flex;
-	gap: 4px;
-	height: 44px;
-	justify-content: center;
-	margin-top: 28px;
-	padding: 4px 10px;
-	position: relative;
-	width: 349px;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px dashed;
+  border-color: #191970;
+  border-radius: 32px;
+  display: flex;
+  gap: 4px;
+  height: 44px;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 4px 10px;
+  position: relative;
+  width: 349px;
 }
 
 .group-56 {
-	height: 20.01px;
-	min-width: 20.5px;
-	position: relative;
+  height: 20.01px;
+  min-width: 20.5px;
+  position: relative;
 }
 
 .tambah-jualan-anda {
-	color: #4a4a4a69;
-	font-family: var(--font-family-inter)
-	font-size: var(--font-size-xx1);
-	font-weight: 500;
-	letter-spacing: 1px;
-	line-height: normal;
-	position: relative;
-	white-space: nowrap;
-	width: fit-content;
+  color: #4a4a4a69;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xx1);
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
 }
 
 .frame-719 {
-	align-items: center;
-	background-color: #E0FFFF;
-	border: 1px solid;
-	border-color: #191970;
-	border-radius: 32px;
-	display: flex;
-	gap: 4px;
-	height: 119px;
-	justify-content: center;
-	margin-top: 51px;
-	padding: 4px 10px;
-	position: relative;
-	width: 349px;
+  align-items: center;
+  background-color: #e0ffff;
+  border: 1px solid;
+  border-color: #191970;
+  border-radius: 32px;
+  display: flex;
+  gap: 4px;
+  height: 119px;
+  justify-content: center;
+  margin-top: 51px;
+  padding: 4px 10px;
+  position: relative;
+  width: 349px;
 }
 
 .belum-ada-produk-yang-dapat-ditampilkan {
-	color: #808080;
-	font-family: var(--font-family-inter);
-	font-size: var(--font-size-m);
-	font-weight: 500;
-	height: 50px;
-	letter-spacing: 0;
-	line-height: normal;
-	position: relative;
-	text-align: center;
-	width: 228px;
+  color: #808080;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  height: 50px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  width: 228px;
 }
