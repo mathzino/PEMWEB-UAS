@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+.etalase{
+	align-items: flex-start;
+	background-color: #dbeafe;
+	border: 1px none;
+	display: flex;
+	flex-direction: column;
+	height: 667px;
+	width: 375px;
+	margin: auto;
+}
+
+.hidden,
+.hidden * {
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.background-atas{
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	position: relative;
+	width: 375px;
+} 
+
+.settings{
+	height: 20px;
+	min-width: 20px;
+	position: relative;
+}
+
+.toko-kamu{ 
+	color: black;
+	font-family: 'Inter', sans-serif;
+	font-size: medium;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+	line-height: 22.4px;
+	margin-top: px;
+	position: relative;
+	white-space: nowrap;
+	width: content;
+}
+
+
+.layer-pertama{
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	gap: 109px;
+	padding:;
+	position: relative;
+	width: 375px;
+}
+
+.layer-kedua{
+	align-items: center;
+	display: flex;
+	gap: 10px;
+	position: relative;
+	width: fit-content;
+}
+
+.layer-nama{
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: fit-content;
+}
+
+.rico-putera-anugrah{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	line-height: 19.6px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.frame-7{ 
+	align-items: center;
+	display: flex;
+	gap: 4px;
+	position: relative;
+	width: fit-content;
+}
+
+.ellipse-11{
+	background-color: #3B82F6;
+	border-radius: 4px;
+	height: 8px;
+	min-width: 8px;
+	position: relative;
+}
+
+.online{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	line-height: 14px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.foto-profil{
+	height: 50px;
+	min-width: 50px;
+	object-fit: cover;
+	position: relative;
+}
+
+.frame-container {
+	align-items: flex-start;
+	display: flex;
+	min-width: 375px;
+}
+
+.frame {
+	height: 50px;
+	width: 94px;
+}
+
+.frame-717 {
+	height: 50px;
+	width: 93px;
+}
+
+.layer-bawah{
+	align-items: flex-start;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	position: relative;
+	width: fit-content;
+}
+
+.layer-list-produk{
+	align-items: flex-start;
+	display: flex;
+	gap: 10px;
+	padding: 10px;
+	position: relative;
+	width: fit-content;
+}
+
+.list-produk-toko{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: -1px;
+	position: relative;
+	width: fit-content;
+}
+
+.layer-produk-bawah{
+	height: 314px;
+	min-width: 375px;
+	position: relative;
+}
+
+.flex-col{
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	left: 10px;
+	min-height: 294px;
+	position: relative;
+	top: 10px;
+	width: 355px;
+}
+
+.frame-72{
+	align-items: center;
+	display: flex
+	justify-content: space-between;
+	position: relative;
+	width: 355px;
+}
+
+.etalase .number-5 {
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: -1px;
+	position: relative;
+	width: fit-content;
+}
+
+.vector-1{
+	height: 10px;
+	min-width: 700px;
+	position: relative;
+
+}
+
+.frame-71{
+	align-items: center;
+	display: flex;
+	gap: 7px;
+	position: relative;
+	width: fit-content;
+}
+
+.etalase .produk{
+	letter-spacing: 0;
+	line-height: normal;
+	position: relative;
+	width: fit-content;
+}
+
+.vector {
+	height: 22px;
+	min-width: 20px;
+	position: relative;
+}
+
+.semua-produk{
+	letter-spacing: 0;
+	line-height: normal;
+	position: relative;
+	width: fit-content;
+}
+
+.text-1{
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: -1px;
+	position: relative;
+	width: fit-content;
+}
+
+.overlap-group{
+	height: 84px;
+	position: relative;
+	width: 355px;
+}
+
+.frame-721{
+	align-items: center;
+	display: flex
+	justify-content: space-between;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 355px;
+}
+.vector-32{
+	height: 52px;
+	left: 0px;
+	position: absolute;
+	top: 16px;
+	width: 178px;
+}
+
+.frame-722{
+	align-items: center;
+	display: flex
+	justify-content: space-between;
+	left: 0px;
+	position: absolute;
+	top: 62px;
+	width: 355px;
+}
+
+
+
+

@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700,600,400italic");
+
+.hidden,
+.hidden * {
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.etalase{
+	align-items: center;
+	background-color: #ffffff;
+	border: 1px none;
+	display: flex;
+	flex-direction: column;
+	height: 667px;
+	width: 375px;
+	margin: auto;
+}
+
+.frame-container-1 {
+	align-items: flex-start;
+	align-self: flex-start;
+	display: flex;
+	gap : 9px;
+	height: 18px;
+	margin-left: 13px;
+	margin-top: 23px;
+	min-width: 112px;
+}
+.frame-8{
+	align-items: center;
+	background-color: #ffffff;
+	border-radius: 32px;
+	display: flex;
+	gap: 4px;
+	padding: 4px 12px;
+	position: relative;
+	width: fit-content;
+}
+
+.vector{
+	height: 8px;
+	min-width: 8px;
+	position: relative;
+}
+
+.filter {
+	color: #6495ED;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: -0.5px;
+	position: relative;
+	width: fit-content;
+}
+
+.frame-706 {
+	align-items: center;
+	background-color: #ffffff;
+	border: 0.5px solid;
+	border-color: #6495ED;
+	border-radius: 32px;
+	display: flex;
+	gap : 4px;
+	justify-content: center;
+	padding: 4px 10px;
+	position: relative;
+	width: fit-content;
+}
+
+.selesai {
+	color: #6495ED;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: -0.5px;
+	position: relative;
+	width: fit-content;
+}
+
+.belum-ada-transaksi {
+	color: #4a4a4a69;
+	font-family: var(--font-family-inter);
+	font-size: var(--font-size-xx1);
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-left: 1px;
+	margin-top: 81px;
+	min-height: 19px;
+	min-width: 160px;
+	white-space: nowrap;
+}
+
+.frame-715 {
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	position: relative;
+	width: 375px;
+}
+
+.settings {
+	height: 15px;
+	min-width: 20px;
+	position: relative;
+}
+
+.valign-text-middle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.toko-kamu {
+	color: black;
+	font-family: var(--font-family-inter);
+	font-size: var(--font-size-xxl);
+	font-weight: 700;
+	letter-spacing: 0.2px;
+	line-height: 22.4px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.title {
+	color: #4a4a4a;
+	font-family: var(--font-family-inter);
+	font-size: var(--font-size-l);
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-top: 8px;
+	min-height: 29px;
+	min-width: 175px;
+}
+
+.frame-container {
+	align-items: flex-start;
+	display: flex;
+	min-width: 375px;
+}
+
+.frame {
+	height: 50px;
+	width: 94px;
+}
+
+.frame-717 {
+	height: 50px;
+	width: 93px;
+}
+
+.frame-714 {
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	gap: 109;
+	padding: 12px 10px 20px;
+	position: relative;
+	width: 375px;
+}
+
+.frame-16 {
+	align-items: center;
+	display: flex;
+	gap : 10px;
+	position: relative;
+	width: fit-content;
+}
+
+.portrait-of-happy-smiley-man {
+	height: 50px;
+	min-width: 50px;
+	object-fit: cover;
+	position: relative;
+}
+
+.frame-15 {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: fit-content;
+}
+
+.frame-701 {
+	align-items: center;
+	display: flex;
+	gap: 4px;
+	position: relative;
+	width: fit-content;
+}
+
+.ellipse-11{
+	background-color: blue;
+	border-radius: 4px;
+	height: 8px;
+	min-width: 8px;
+	position: relative;
+}
+
+.online {
+	color: black;
+	font-family: var(--font-family-inter);
+	font-size: var(--font-size-m2);
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	line-height: 14px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.rico-putera-anugrah {
+	color: black;
+	font-family: var(--font-family-inter);
+	font-size: var(--font-size-xl2);
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	line-height: 19.6px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}

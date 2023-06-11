@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+.penjualan{
+	align-items: flex-start;
+	background-color: #dbeafe;
+	border: 1px none;
+	display: flex;
+	flex-direction: column;
+	height: 667px;
+	width: 375px;
+	font-family: 'Inter', sans-serif;
+	margin: auto;
+}
+
+.hidden,
+.hidden * {
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.settings{
+	height: 20px;
+	min-width:20px;
+	position: relative;
+}
+
+
+.background-atas{
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	position: relative;
+	width: 375px;
+} 
+
+.layer-satu{
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	gap: 109px;
+	padding:;
+	position: relative;
+	width: 375px;
+}
+
+.layer-nama-foto{
+	align-items: center;
+	display: flex;
+	gap: 10px;
+	position: relative;
+	width: fit-content;
+}
+
+
+.layer-nama{
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: fit-content;
+}
+
+.rico-putera-anugrah{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	line-height: 19.6px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.layer-online{
+	align-items: center;
+	display: flex;
+	gap: 4px;
+	position: relative;
+	width: fit-content;
+}
+
+.ellipse{
+	background-color: #3B82F6;
+	border-radius: 4px;
+	height: 8px;
+	min-width: 8px;
+	position: relative;
+}
+
+.online{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	line-height: 14px;
+	margin-top: -1px;
+	position: relative;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+.foto-profil{
+	height: 50px;
+	min-width: 50px;
+	object-fit: cover;
+	position: relative;
+}
+
+
+.center{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	margin-left: 21px;
+	margin-top: 20px;
+	min-height: 29px;
+}
+
+.saat-ini{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	min-height: 15px;
+	min-width: 43px;
+}
+
+.keseluruhan{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: normal;
+	min-height: 15px;
+	min-width: 43px;
+	margin-left: 85px;
+	margin-top: -16px
+}
+
+.garis{
+	align-self: center;
+	height: 2px;
+	margin-right: 135px;
+	margin-top: 1px;
+	width: 72px;
+
+}
+
+.box{
+	width: 140px;
+	height: 60px;
+	background-color: #3B82F6;
+	border-radius: 10px;
+	margin-top: 25px;
+	margin-left: 10px;
+	color: #ffffff;
+	font-size: 14px;
+	font-family: 'Inter', sans-serif;
+}
+
+.total-pendapatan{
+	letter-spacing: 0;
+	line-height: normal;
+	margin-left: 12px;
+	min-height: 19px;
+	white-space: nowrap;
+}
+
+.span1{
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.frame-container {
+	align-items: flex-start;
+	display: flex;
+	min-width: 375px;
+}
+
+.frame1 {
+	height: 50px;
+	width: 94px;
+}
+
+.frame2 {
+	height: 50px;
+	width: 94px;
+}
+
+.frame3 {
+	height: 50px;
+	width: 94px;
+}
+
+.frame4 {
+	height: 50px;
+	width: 93px;
+	cursor: pointer
+}
+
+
+
+
+
+
+
