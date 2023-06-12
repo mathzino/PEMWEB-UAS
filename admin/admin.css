@@ -1,0 +1,126 @@
+body {
+  background-color: #e1f5fe;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-container,
+.login-container,
+.admin-container {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.admin-container {
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2196f3;
+}
+
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #b3e5fc;
+}
+
+input[type="submit"] {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    margin-top: 50px;
+  }
+}
+
+.button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #1976d2;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #b3e5fc;
+}
+
+th {
+  background-color: #2196f3;
+  color: white;
+}
+
+a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #1976d2;
+}
+
+.edit-btn,
+.delete-btn,
+.approve-btn {
+  margin-right: 10px;
+}
+
+.edit-btn i,
+.delete-btn i,
+.approve-btn i {
+  color: #2196f3;
+}
+
+.edit-btn:hover i,
+.delete-btn:hover i,
+.approve-btn:hover i {
+  color: #1976d2;
+  cursor: pointer;
+}
