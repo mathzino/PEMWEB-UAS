@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jun 2023 pada 10.06
+-- Waktu pembuatan: 12 Jun 2023 pada 05.53
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -56,7 +56,14 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id_category`, `category_name`) VALUES
-(1, 'makanan');
+(1, 'makanan'),
+(2, 'minuman'),
+(3, 'Sayur'),
+(4, 'Buah'),
+(5, 'Sembako'),
+(6, 'Obat'),
+(7, 'Bumbu'),
+(8, 'Perlengkapan');
 
 -- --------------------------------------------------------
 
@@ -101,7 +108,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `toko_id`, `name`, `price`, `qt`, `product_uom`, `product_category`, `image`, `description`) VALUES
-(1, 1, 'Kopi Susu', 5000, 50, 2, 1, 'https://pemweb-uas-frontend.vercel.app/_next/image?url=https%3A%2F%2Fpemweb-api.aldam.my.id%2Fapi%2Fseller%2Ffile%2Fproduct%2F646fa91694c216f6d358c1b3-1686369679608.jpg&w=384&q=75', 'Segelas kopi susu yang sedap memancarkan pesona yang tak tertandingi. Dalam setiap tegukan, harmoni antara cita rasa kopi yang kuat dan kelembutan susu terpadu dengan sempurna. Aroma kopi yang kaya menggoda indra penciuman, sementara rasa pahit yang halus meluncur di lidah.');
+(1, 1, 'Kopi Susu', 5000, 50, 2, 1, 'Kopi Susu_41985213_Kopi Susu.jpg', 'Segelas kopi susu yang sedap memancarkan pesona yang tak tertandingi. Dalam setiap tegukan, harmoni antara cita rasa kopi yang kuat dan kelembutan susu terpadu dengan sempurna. Aroma kopi yang kaya menggoda indra penciuman, sementara rasa pahit yang halus meluncur di lidah.'),
+(3, 1, 'Es Coklat', 10000, 50, 2, 2, 'Es Coklat_0.12898100 1686541343.jpeg', 'Es Coklat yang enak');
 
 -- --------------------------------------------------------
 
@@ -119,8 +127,9 @@ CREATE TABLE `product_uom` (
 --
 
 INSERT INTO `product_uom` (`id_product_uom`, `uom`) VALUES
-(1, 'kg'),
-(2, 'Pcs');
+(1, 'Kg'),
+(2, 'Pcs'),
+(3, 'Ons');
 
 -- --------------------------------------------------------
 
@@ -141,7 +150,7 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`id_seller`, `username`, `name`, `email`, `password`) VALUES
-(1, 'username', 'name', 'test@gmail.com', 'test123');
+(1, 'aldam', 'aldama', 'fihrisaldama015@gmail.com', '$2y$10$8gbVb7A9EAZjlpFh/XzA/.LHm6dJzDhKwzhooA12pTjrXcV2XevgS');
 
 -- --------------------------------------------------------
 
@@ -183,7 +192,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`toko_id`, `name`, `alamat`, `owner`, `image_profile`, `status`, `pendapatan_total`) VALUES
-(1, 'toko 1', 'Jl rungkut', 1, 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', 1, 0);
+(1, 'aldamtoko', 'jl medayu', 1, 'aldamtoko_1686475718.png', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -316,7 +325,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `code`
@@ -328,13 +337,13 @@ ALTER TABLE `code`
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `product_uom`
 --
 ALTER TABLE `product_uom`
-  MODIFY `id_product_uom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_product_uom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `seller`
@@ -352,7 +361,7 @@ ALTER TABLE `star`
 -- AUTO_INCREMENT untuk tabel `toko`
 --
 ALTER TABLE `toko`
-  MODIFY `toko_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `toko_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaction`
