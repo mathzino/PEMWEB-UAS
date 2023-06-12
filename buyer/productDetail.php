@@ -1,3 +1,42 @@
+
+<?php
+
+
+
+
+
+
+
+include "../conn.php";
+
+
+if(!isset($_GET["id"])) header("Location: index.php");
+
+$productId = $_GET['id'];
+
+$productQuery= "SELECT product.qt,product.description, product.product_id,product.name,product.price,product.product_uom,product.product_category as category,product.image, star.star, toko.name AS storeName,product_uom.uom FROM product
+INNER JOIN star ON product.product_id = star.id_product
+INNER JOIN toko ON toko.toko_id=product.toko_id
+INNER JOIN product_uom on product_uom.id_product_uom=product.product_uom 
+where product.product_id=". $productId . " LIMIT 1 " ;
+
+$productArr = mysqli_query(connection(), $productQuery);
+
+if($productArr->num_rows>0){
+    $product = $productArr->fetch_assoc();
+}else{
+    header("Location: index.php");
+}
+
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,15 +120,15 @@
                                         <path d="M11.25 3.24501L10.5 0.995012C10.4739 0.917394 10.4232 0.85045 10.3554 0.804405C10.2877 0.758359 10.2068 0.735744 10.125 0.740012H1.87502C1.79325 0.735744 1.71232 0.758359 1.64461 0.804405C1.5769 0.85045 1.52612 0.917394 1.50002 0.995012L0.750024 3.24501C0.744621 3.28483 0.744621 3.32519 0.750024 3.36501V5.61501C0.750024 5.71447 0.789532 5.80985 0.859859 5.88018C0.930185 5.9505 1.02557 5.99001 1.12502 5.99001H1.50002V9.74001H2.25002V5.99001H4.50002V9.74001H10.5V5.99001H10.875C10.9745 5.99001 11.0699 5.9505 11.1402 5.88018C11.2105 5.80985 11.25 5.71447 11.25 5.61501V3.36501C11.2554 3.32519 11.2554 3.28483 11.25 3.24501ZM9.75002 8.99001H5.25002V5.99001H9.75002V8.99001ZM10.5 5.24001H9.00002V3.74001H8.25002V5.24001H6.37502V3.74001H5.62502V5.24001H3.75002V3.74001H3.00002V5.24001H1.50002V3.42501L2.14502 1.49001H9.85502L10.5 3.42501V5.24001Z" fill="#3B82F6" />
                                     </svg>
                                 </span>
-                                <p style="color: #474747;font-size: 1rem;line-height: 1.5rem;">Aldam Shop</p>
+                                <p style="color: #474747;font-size: 1rem;line-height: 1.5rem;"><?php echo $product['storeName']?></p>
                             </div>
                             <!-- TOKO -->
                             <div>
-                                <p style="font-size: 2rem;line-height: 2.5rem;color: #474747;margin-top: .5rem;font-weight: bold;">Kopi Susu</p>
+                                <p style="font-size: 2rem;line-height: 2.5rem;color: #474747;margin-top: .5rem;font-weight: bold;"><?php echo $product['name'] ?></p>
                                 <!-- RATING -->
                                 <div style="display: flex;gap: .25rem;margin-top: .5rem;">
                                     <?php $i = 0;
-                                    for ($i; $i < 5; $i++) : ?>
+                                    for ($i; $i < $product['star']; $i++) : ?>
                                         <svg width="20" height="20" viewBox=" 0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.08104 2.848L6.54204 2.479L5.40704 0.178004C5.37604 0.115004 5.32504 0.0640037 5.26204 0.0330037C5.10404 -0.0449963 4.91204 0.0200037 4.83304 0.178004L3.69804 2.479L1.15904 2.848C1.08904 2.858 1.02504 2.891 0.976038 2.941C0.9168 3.00189 0.884157 3.0838 0.885282 3.16875C0.886407 3.25369 0.921208 3.33471 0.982038 3.394L2.81904 5.185L2.38504 7.714C2.37486 7.77283 2.38137 7.83334 2.40383 7.88866C2.42629 7.94398 2.4638 7.99189 2.51211 8.02698C2.56041 8.06206 2.61759 8.08291 2.67714 8.08716C2.73669 8.0914 2.79624 8.07888 2.84904 8.051L5.12004 6.857L7.39104 8.051C7.45304 8.084 7.52504 8.095 7.59404 8.083C7.76804 8.053 7.88504 7.888 7.85504 7.714L7.42104 5.185L9.25804 3.394C9.30804 3.345 9.34104 3.281 9.35104 3.211C9.37804 3.036 9.25604 2.874 9.08104 2.848Z" fill="#FFD600" />
                                         </svg>
@@ -99,13 +138,13 @@
 
                                 <!-- HARGA -->
                                 <p style="font-size: 1rem;line-height: 1.5rem;font-weight: bold;color: #292929;margin-top: 1rem;">
-                                    Rp.5000/Pcs
+                                    Rp.<?php echo " " . $product['price'] . " / " . $product['uom'] ?>
                                 </p>
                                 <!-- HARGA -->
                             </div>
 
                             <div style="margin-top: 1rem;">
-                                <p style="color: #474747;">Segelas kopi susu yang sedap memancarkan pesona yang tak tertandingi. Dalam setiap tegukan, harmoni antara cita rasa kopi yang kuat dan kelembutan susu terpadu dengan sempurna. Aroma kopi yang kaya menggoda indra penciuman, sementara rasa pahit yang halus meluncur di lidah.</p>
+                                <p style="color: #474747;"><?php  echo $product['description'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -115,17 +154,17 @@
                             <!-- TAMBAH / KURANG TOTAL -->
                             <div>
                                 <div style="display: flex;justify-content: flex-end;height: 2.75rem;align-items: center;background-color: #fffe;border-top: 2px solid #0001;padding-top: .5rem;">
-                                    <div onClick="changeTotal('minus')" style="cursor: pointer;width: 2.5rem;display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;font-weight: bold;height: 100%;color: #618D80;">
+                                    <div id="incrementButton" style="cursor: pointer;width: 2.5rem;display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;font-weight: bold;height: 100%;color: #618D80;">
                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11 7V15M7 11H15M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
 
                                     </div>
-                                    <div style="cursor: default;border: 1px solid #000;border-radius: .75rem;padding: 0rem 2rem; display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;color: #000;font-weight: bold;">
-                                        1
-                                    </div>
-                                    <p style="margin-left: 1rem;font-weight: bold;">Pcs</p>
-                                    <div onClick="changeTotal('plus')" style="cursor: pointer;width: 2.5rem;display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;font-weight: bold;height: 100%;color: #618D80;">
+                                    <input style="cursor: default;border: 1px solid #000;border-radius: .75rem;padding: 0rem 2rem; display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;color: #000;font-weight: bold; width:fit-content" type="number" max="100" value=1 id="counter"/>
+                                        
+                                    </input>
+                                    <p style="margin-left: 1rem;font-weight: bold;"><?php echo $product['uom']?></p>
+                                    <div id="decrementButton" style="cursor: pointer;width: 2.5rem;display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;font-weight: bold;height: 100%;color: #618D80;">
                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M7 11H15M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -141,11 +180,17 @@
 
                                     <div style="width: 12rem;padding: .5rem 1.75rem;flex-grow: 0;flex-shrink: 0;color: #3B82F6;">
                                         <p style="font-size: 14px;color: #000;">total</p>
-                                        <p>Rp. 5000</p>
+                                        <p id="totalPrice">0</p>
+                                        <input id="priceProduct" type="number" hidden value=<?php echo $product['price']?>>
                                     </div>
                                     <div style="display: flex;">
                                         <div style="padding: 1rem 0;background-color: #fff;flex-grow: 1;display: flex;justify-content: center;">
-                                            <button onClick="handleBuy" style="border: none;border-radius: 1rem; background-color: #3B82F6;color: white;font-size: 1.5rem;line-height: 2rem;font-weight: bold;padding: 0 2rem;">Beli</button>
+                                        <form  method="POST" action="formBuy.php">
+                                            <input type="text" hidden name="id_product" value=<?php echo $product['product_id']?>>
+                                            <input type="text" hidden name="qt" id="qtForm" value=1>
+                                            <input type="text" hidden name="buy" value=true>
+                                            <button type="submit"  style="border: none;border-radius: 1rem; background-color: #3B82F6;color: white;font-size: 1.5rem;line-height: 2rem;font-weight: bold;padding: 0 2rem;">Beli</button>
+                                        </form>    
                                         </div>
                                         <!-- {/* */} -->
                                         <div style="padding: .5rem 0;background-color: white;width: 5rem;display: flex;justify-content: center;">
@@ -170,6 +215,56 @@
             </div>
         </div>
     </div>
+    <script>
+        var incrementBtn = document.getElementById("incrementButton");
+        var decrementBtn = document.getElementById("decrementButton");
+        var totalPriceEl = document.getElementById("totalPrice");
+        var priceProductEl = document.getElementById("priceProduct")
+        var qtForm = document.getElementById("qtForm");
+        var priceProduct = priceProductEl.value
+        totalPrice.textContent= priceProduct
+        var counter = document.getElementById("counter");
+        
+        // Initialize the counter value
+        
+        // Function to increment the counter
+        
+
+// Add event listeners to the buttons
+incrementBtn.addEventListener("click", increment);
+decrementBtn.addEventListener("click", decrement);
+
+
+// menghitung total pembelian barang
+
+
+
+
+function increment() {
+        var valueCount = counter.value;
+        valueCount++;
+        counter.value = valueCount;
+        qtForm.value = valueCount;
+        var priceTotal = valueCount*priceProduct;
+        totalPriceEl.textContent=priceTotal ;
+        
+    }
+    
+    // Function to decrement the counter
+    function decrement() {
+        var valueCount = counter.value;
+        if (valueCount > 1) {
+            valueCount--;
+            counter.value = valueCount;
+            qtForm.value=valueCount;
+            var priceTotal = valueCount*priceProduct;
+            totalPriceEl.textContent=priceTotal ;
+        }
+        }
+
+
+
+    </script>
 </body>
 
 </html>
