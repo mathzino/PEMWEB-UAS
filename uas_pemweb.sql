@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2023 pada 05.53
+-- Waktu pembuatan: 12 Jun 2023 pada 07.14
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', 'admin');
+(1, 'admin@gmail.com', '$2y$10$d/yunDh.u8IDpiIS.KmqSeS35Q2h7qbfhGMkpeNkN/dd4N1LR6mC2');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`toko_id`, `name`, `alamat`, `owner`, `image_profile`, `status`, `pendapatan_total`) VALUES
-(1, 'aldamtoko', 'jl medayu', 1, 'aldamtoko_1686475718.png', 0, 0);
+(1, 'aldamtoko', 'jl medayu', 1, 'aldamtoko_1686475718.png', 1, 0);
 
 -- --------------------------------------------------------
 
