@@ -92,7 +92,7 @@ if (!isset($_SESSION['id_toko'])) {
                     <div style="border-radius: .75rem;box-shadow: 0 10px 15px rgb(100 116 139 / 0.1);background-color: white;width: 10rem;cursor: pointer;">
                         <a href="#" style="text-decoration: none;">
                             <div key="1" style="width: 100%;height: 10rem;display: flex;justify-content: center;background-color: rgb(226 232 240);border-radius: .75rem;">
-                                <img src="<?= $data_produk['image'] ?>" width="200" height="200" priority style="object-fit: cover;height: 10rem;width: auto;border-radius: .75rem;" alt="foto-produk" />
+                                <img src="../../assets/produk/<?= $data_produk['image'] ?>" width="200" height="200" priority style="object-fit: cover;height: 10rem;width: auto;border-radius: .75rem;" alt="foto-produk" />
                             </div>
                             <div style="padding: .75rem;">
                                 <h1 style="margin-bottom: .25rem;font-weight: 400;color: #3B82F6;font-size: 1.5rem;"><?= $data_produk['name'] ?></h1>
@@ -105,11 +105,14 @@ if (!isset($_SESSION['id_toko'])) {
                                     $result_star = mysqli_query(connection(), $query_star);
                                     $total_star = 0;
                                     $star_count = 0;
+                                    $average_star = 0;
                                     foreach ($result_star as $star) {
                                         $star_count++;
                                         $total_star += $star['star'];
                                     }
-                                    $average_star = $total_star / $star_count;
+                                    if ($star_count != 0) {
+                                        $average_star = $total_star / $star_count;
+                                    }
 
                                     $i = 0;
                                     for ($i; $i < floor($average_star); $i++) : ?>
