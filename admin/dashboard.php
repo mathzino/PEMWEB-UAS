@@ -23,6 +23,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 <body>
   <div class="admin-container">
     <h1>Halaman Admin</h1>
+    <a href="./logout.php"><button>Log Out</button></a>
     <table>
       <tr>
         <th>Nama Toko</th>
