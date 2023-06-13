@@ -90,7 +90,7 @@ if (!isset($_SESSION['id_toko'])) {
             <div style="display: grid;grid-template-columns: repeat(2, minmax(0, 1fr));gap: 1.5rem;background-color: white;margin: .75rem 0;padding: .75rem;border-radius: .75rem;">
                 <?php while ($data_produk = mysqli_fetch_array($result_produk)) : ?>
                     <div style="border-radius: .75rem;box-shadow: 0 10px 15px rgb(100 116 139 / 0.1);background-color: white;width: 10rem;cursor: pointer;">
-                        <a href="#" style="text-decoration: none;">
+                        <a href="../edit/?product_id=<?= $data_produk['product_id'] ?>" style="text-decoration: none;">
                             <div key="1" style="width: 100%;height: 10rem;display: flex;justify-content: center;background-color: rgb(226 232 240);border-radius: .75rem;">
                                 <img src="../../assets/produk/<?= $data_produk['image'] ?>" width="200" height="200" priority style="object-fit: cover;height: 10rem;width: auto;border-radius: .75rem;" alt="foto-produk" />
                             </div>

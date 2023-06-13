@@ -7,13 +7,21 @@ if (!isset($_SESSION['id_toko'])) {
   header("Location: ../login");
 }
 $status = isset($_GET['status']) ? $_GET['status'] : '';
+if ($_GET['product_id']) {
+  $product_id = $_GET['product_id'];
+  $query = "SELECT * FROM product JOIN product_uom ON product.product_uom = product_uom.id_product_uom WHERE product_id = '$product_id'";
+  $result = mysqli_query(connection(), $query);
+  $data = mysqli_fetch_array($result);
+} else {
+  header("Location: ../beranda-mitra");
+}
 ?>
 <!DOCTYPE html>
 <html>
 
 <head lang="en" dir="ltr">
   <meta charset="utf-8">
-  <title>Tambah Produk</title>
+  <title>Edit Produk</title>
   <link rel="stylesheet" type="text/css" href="style5.css">
   <style>
     * {
@@ -36,10 +44,10 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
   <div class="container">
     <div style="display: flex;gap: 1rem;justify-content: flex-start;align-items: center;">
       <a href="../beranda-mitra/"><img src="../assets/svg/back-arrow.svg" alt="back"></a>
-      <p style="font-size: 1.25rem;font-weight: bold;">Tambah Produk</p>
+      <p style="font-size: 1.25rem;font-weight: bold;">Edit Produk</p>
     </div>
-    <form action="verif_tambah_barang.php" method="POST" enctype="multipart/form-data">
-      <center><img class="gambar" width="50" height="50" src="packaging.png"></center>
+    <form action="verif_edit_barang.php" method="POST" enctype="multipart/form-data">
+      <center><img src="../../assets/produk/<?= $data['image'] ?>" style="border-radius: 1rem;height: 200px;width: auto;object-fit: cover;"></center>
       <?php
       if ($status == 'err') {
         echo "<p style='color:red'>Gagal Menambahkan Barang</p>";
@@ -47,21 +55,23 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
         echo "<p style='color:red'>Gagal Upload Foto</p>";
       }
       ?>
+      <input type="hidden" name="product_id" value="<?= $data['product_id'] ?>">
+      <input type="hidden" name="image_product_old" value="<?= $data['image'] ?>">
       <div class="form-group">
         <label for="image_produk" style="margin: .5rem;">Upload Gambar Produk</label>
-        <input type="file" id="image_produk" name="image_produk" required>
+        <input type="file" id="image_produk" name="image_product">
       </div>
 
       <div class="form-group">
-        <input type="text" id="namaproduk" name="namaproduk" placeholder="Nama Produk" required>
+        <input type="text" id="namaproduk" name="namaproduk" placeholder="Nama Produk" value="<?= $data['name'] ?>" required>
       </div>
 
       <div class="form-group">
-        <input type="number" id="jumlah" name="jumlah" placeholder="Jumlah (Stok)" required>
+        <input type="number" id="stok" name="stok" placeholder="Jumlah (Stok)" value="<?= $data['qt'] ?>" required>
       </div>
 
       <div class="form-group1" style="display: flex;align-items: center;gap: 1rem;">
-        <input type="text" id="harga" name="harga" placeholder="Harga" required>
+        <input type="text" id="harga" name="harga" placeholder="Harga" value="<?= $data['price'] ?>" required>
         <span>/</span>
         <select style="width: 8rem; padding: 15px;border-radius: 20px;border: 1px solid #ccc;" id="uom" name="uom" required>
           <option value="">Pilih</option>
@@ -70,7 +80,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
           $result_uom = mysqli_query(connection(), $query_uom);
           ?>
           <?php while ($data_uom = mysqli_fetch_array($result_uom)) : ?>
-            <option value="<?= $data_uom['id_product_uom'] ?>"><?= $data_uom['uom'] ?></option>
+            <option value="<?= $data_uom['id_product_uom'] ?>" <?= $data['product_uom'] == $data_uom['id_product_uom'] ? 'selected' : '' ?>><?= $data_uom['uom'] ?></option>
           <?php endwhile; ?>
         </select>
       </div>
@@ -83,7 +93,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
           $result = mysqli_query(connection(), $query);
           ?>
           <?php while ($data_kategori = mysqli_fetch_array($result)) : ?>
-            <option value="<?= $data_kategori['id_category'] ?>"><?= $data_kategori['category_name'] ?></option>
+            <option value="<?= $data_kategori['id_category'] ?>" <?= $data['product_category'] == $data_kategori['id_category'] ? 'selected' : ''; ?>><?= $data_kategori['category_name'] ?></option>
           <?php endwhile; ?>
           <option value="Perlengkapan">lainnya</option>
         </select>
@@ -91,7 +101,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 
       <!-- text area about product description -->
       <div class="form-group">
-        <textarea name="deskripsi" id="deskripsi" placeholder="Deskripsi Produk" style="padding: 15px;border-radius: 20px;border: 1px solid #ccc;width: 100%;"></textarea>
+        <textarea name="deskripsi" id="deskripsi" placeholder="Deskripsi Produk" style="padding: 15px;border-radius: 20px;border: 1px solid #ccc;width: 100%;font-family: sans-serif;"><?= $data['description']; ?></textarea>
       </div>
 
       <div class="form-group">
