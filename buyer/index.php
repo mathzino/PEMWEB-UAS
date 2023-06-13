@@ -90,25 +90,38 @@ $products = mysqli_query(connection(), $queryGetProducts);
     <div style="display: flex; justify-content: center">
       <div style="width: 100vw; max-width: 28rem; background-color: #dbeafe; border: 1px solid #dbeafe; position: relative">
         <!-- CHECKOUT FORM -->
-        <!-- <div style="background-color: rgba(100 116 139,0.2);height: 100%;position: absolute;z-index: 20;display: flex;justify-content: center;"></div>
-            <div style="justify-content: center;display: flex;">
+
+
+
+        <div style="background-color: rgba(100 116 139,0.2);height: 100%;position: absolute;z-index: 20;display: flex;justify-content: center;"></div>
+         
+        <?php
+if(isset($_POST)&&isset($_POST['buy'])){
+  $_SESSION['transactionTemp']=new stdClass();
+  $_SESSION['transactionTemp']->id_product = $_POST['id_product'];
+  $_SESSION['transactionTemp']->qt = $_POST['qt'];
+  $_SESSION['transactionTemp']->toko_id = $_POST['toko_id'];
+  $_SESSION['transactionTemp']->price = $_POST['price'];
+?>
+
+<div style="justify-content: center;display: flex;">
                 <div style="width: 18rem;height: 575px;background-color: white;padding: 1.5rem 1.25rem;border-radius: 0.5rem;position: fixed;top: 1.5rem;z-index: 30;">
                     <p style="font-size: 1.5rem;line-height: 2rem;color: #618D80;font-weight: 500;">Checkout Belanja!</p>
-                    <form style="display: flex;flex-direction: column;gap: 3rem;margin-top: 4rem;">
-                        <input onChange={handleChange} type="text" name="name" placeholder="Nama" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
-                        <input onChange={handleChange} type="text" name="contact" placeholder="No. Whatsapp" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
-                        <input onChange={handleChange} type="text" name="alamat" placeholder="Alamat" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
+                    <form style="display: flex;flex-direction: column;gap: 3rem;margin-top: 4rem;" action="action/buy.php" method="POST">
+                        <input  type="text" name="name" placeholder="Nama" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
+                        <input  type="text" name="contact" placeholder="No. Whatsapp" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
+                        <input  type="text" name="alamat" placeholder="Alamat" style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;" />
                         <div style="border: none; border-bottom: 1px solid #618D80;color: #618D80;padding: .25rem;font-size: 1rem;line-height: 1.5rem">
-                            Total Belanja : <span className=" font-bold">Rp. 10.000</span>
+                            Total Belanja : <span className=" font-bold">Rp. <?php echo  $_SESSION['transactionTemp']->qt*$_SESSION['transactionTemp']->price?></span>
                         </div>
-                        <-- FORM TIDAK LOADING ->
-                        <button onClick={handleConfirm} style="border: none;background-color: #fb7777;border-radius: 1.5rem;height: 4rem;width: 100%;color: white;font-size: 1rem;line-height: 1.5rem;padding: .5rem 0;font-weight: bold;">
+                        <!-- <-- FORM TIDAK LOADING -> -->
+                        <button onClick={handleConfirm} style="cursor:pointer;border: none;background-color: #fb7777;border-radius: 1.5rem;height: 4rem;width: 100%;color: white;font-size: 1rem;line-height: 1.5rem;padding: .5rem 0;font-weight: bold;">
                             <div style="padding-bottom: .25rem;">Konfirmasi</div>
                         </button>
-                        <-- FORM TIDAK LOADING ->
+                        <!-- <-- FORM TIDAK LOADING -> -->
 
-                        <-- FORM LOADING ->
-                        <button disabled onClick={handleConfirm} style="border: none;background-color: #fb7777;border-radius: 1.5rem;height: 4rem;width: 100%;color: white;font-size: 1rem;line-height: 1.5rem;padding: .5rem 0;font-weight: bold;">
+                        <!-- <-- FORM LOADING -> -->
+                        <!-- <button disabled onClick={handleConfirm} style="border: none;background-color: #fb7777;border-radius: 1.5rem;height: 4rem;width: 100%;color: white;font-size: 1rem;line-height: 1.5rem;padding: .5rem 0;font-weight: bold;">
                             <div style="display: flex;justify-content: center;align-items: center;gap: .5rem;">
                                 <svg aria-hidden="true" style="width: 2.25rem;height: 2.25rem;color: rgb(229 231 235);animation: spin 1s linear infinite;fill: #fff;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -116,12 +129,16 @@ $products = mysqli_query(connection(), $queryGetProducts);
                                 </svg>
                                 <div style="padding-bottom: .25rem;">Konfirmasi</div>
                             </div>
-                        </button>
-                        <-- FORM LOADING ->
+                        </button> -->
+                        <!-- <-- FORM LOADING -> -->
                     </form>
                 </div>
-            </div> -->
+            </div>
         <!-- NOTIF ETC -->
+<?php }
+
+?>
+        
         <div style="padding: 1rem 1.25rem">
           <div>
             <p style="color: #7b7b7b">Anda Ingin Menjual?</p>

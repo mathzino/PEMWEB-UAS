@@ -14,7 +14,7 @@ if(!isset($_GET["id"])) header("Location: index.php");
 
 $productId = $_GET['id'];
 
-$productQuery= "SELECT product.qt,product.description, product.product_id,product.name,product.price,product.product_uom,product.product_category as category,product.image, star.star, toko.name AS storeName,product_uom.uom FROM product
+$productQuery= "SELECT product.qt,product.description, product.product_id,product.name,product.price,product.product_uom,product.toko_id,product.product_category as category,product.image, star.star, toko.name AS storeName,product_uom.uom FROM product
 INNER JOIN star ON product.product_id = star.id_product
 INNER JOIN toko ON toko.toko_id=product.toko_id
 INNER JOIN product_uom on product_uom.id_product_uom=product.product_uom 
@@ -185,9 +185,11 @@ if($productArr->num_rows>0){
                                     </div>
                                     <div style="display: flex;">
                                         <div style="padding: 1rem 0;background-color: #fff;flex-grow: 1;display: flex;justify-content: center;">
-                                        <form  method="POST" action="formBuy.php">
+                                        <form  method="POST" action="index.php">
                                             <input type="text" hidden name="id_product" value=<?php echo $product['product_id']?>>
                                             <input type="text" hidden name="qt" id="qtForm" value=1>
+                                            <input type="text" hidden name="price"  value=<?php echo $product['price']?> >
+                                            <input type="text" hidden name="toko_id"  value=<?php echo $product["toko_id"]?>>
                                             <input type="text" hidden name="buy" value=true>
                                             <button type="submit"  style="border: none;border-radius: 1rem; background-color: #3B82F6;color: white;font-size: 1.5rem;line-height: 2rem;font-weight: bold;padding: 0 2rem;">Beli</button>
                                         </form>    
