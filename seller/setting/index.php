@@ -49,7 +49,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
                     </div>
                 </a>
             </div>
-
             <?php
             $query = "SELECT * FROM toko WHERE toko_id = '$_SESSION[id_toko]'";
             $result = mysqli_query(connection(), $query);
@@ -60,11 +59,15 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
                         <h1 style="font-size: 1.125rem;font-weight: bold;color: rgb(51 65 85);filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));margin-bottom: .15rem;margin-right: auto;">
                             Edit Profil Tokomu
                         </h1>
-                        <img src="../assets/toko/<?= $data_toko['image_profile'] ?>" style="border-radius: 50%;height: 100px;width: 100px;" alt=""></img>
 
-                        <form style="display: flex;flex-direction: column;max-width: 24rem;padding: 3rem;color: rgb(71 85 105);">
+                        <img src="../assets/toko/<?= $data_toko['image_profile'] ?>" style="border-radius: 50%;height: 100px;width: 100px;margin-top: 1.5rem;" alt="foto"></img>
+
+
+                        <form style="display: flex;flex-direction: column;max-width: 24rem;padding: 3rem;color: rgb(71 85 105);" action="verif_setting.php" method="POST" enctype="multipart/form-data">
+
                             <div style="padding: .75rem 1.5rem;margin: 1.5rem;margin-top: 0;border-radius: 2rem;position: relative;background-color: #3b82f6;cursor: pointer;">
-                                <input type="file" accept=".jpg, .png, .svg, .jfif, .webp" style="position: absolute;cursor: pointer;border-radius: 1.5rem;width: 100%;height: 100%;top: 0;left: 0;opacity: 0;font-size: .875rem;" />
+                                <input type="hidden" name="image_profile_old" value="<?= $data_toko['image_profile'] ?>">
+                                <input type="file" name="image_profile_new" accept=".jpg, .png, .svg, .jfif, .webp" style="position: absolute;cursor: pointer;border-radius: 1.5rem;width: 100%;height: 100%;top: 0;left: 0;opacity: 0;font-size: .875rem;" />
                                 <div className="flex" style="display: flex;">
                                     <p style="font-weight: bold;text-align: center;color: white;width: 100%;">
                                         Unggah Foto Profil
@@ -78,18 +81,23 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 
                                 </div>
                             </div>
+                            <div style="display: flex;justify-content: center;background-color: white;padding: .5rem 0;border-radius: .75rem;margin-bottom: .5rem;<?= $status == '' ? 'display:none' : '' ?>">
+                                <?php
+                                if ($status == 'err') {
+                                    echo "<p style='color:red'>Gagal Update Profile</p>";
+                                } elseif ($status == 'ok') {
+                                    echo "<p style='color:green'>Update Profile Berhasil</p>";
+                                }
+                                ?>
+                            </div>
                             <label htmlFor="nama-toko" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
                                 Nama Toko
                             </label>
-                            <input type="text" id="nama-toko" placeholder="Nama Toko" value="<?= $data_toko['name'] ?>" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" style="padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;" />
-                            <label htmlFor="id-toko" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
-                                ID Toko
-                            </label>
-                            <input type="text" id="id-toko" placeholder="ID Toko" value="<?= $data_toko['toko_id'] ?>" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" style="padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;" />
+                            <input type="text" id="nama-toko" name="namatoko" placeholder="Nama Toko" value="<?= $data_toko['name'] ?>" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" style="padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;outline: none;" />
                             <label htmlFor="alamat" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
                                 Alamat
                             </label>
-                            <textarea placeholder="Alamat" id="alamat" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none overflow-auto font-medium hover:opacity-95 resize-none" style="font-family: sans-serif;height: 100px;padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;overflow: auto;resize: none;"><?= $data_toko['alamat'] ?></textarea>
+                            <textarea placeholder="Alamat" id="alamat" name="alamat" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none overflow-auto font-medium hover:opacity-95 resize-none" style="font-family: sans-serif;height: 100px;padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;overflow: auto;resize: none;outline: none;"><?= $data_toko['alamat'] ?></textarea>
                             <button type=" submit" className="p-3 mb-6 rounded-3xl bg-red-400 font-bold text-white hover:bg-red-500/90 transition-colors" style="padding: .75rem;margin-bottom: 1.5rem;border-radius: 1.5rem;background-color: rgb(248 113 113);font-weight: bold;color: white;border: none;cursor: pointer;">
                                 Ubah Profil
                             </button>
