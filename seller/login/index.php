@@ -32,12 +32,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
         <input type="password" id="password" name="password" placeholder="Password" required>
       </div>
 
-      <div class="pass-link" style="text-align: center;display: flex;justify-content: center;">
-        <a href="#">
-          Lupa password?
-        </a>
-      </div>
-
       <div class="form-group">
         <input type="submit" value="Login">
 
