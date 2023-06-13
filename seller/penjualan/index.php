@@ -11,9 +11,32 @@ if (!isset($_SESSION['id_toko'])) {
 <html>
 
 <head>
-	<title></title>
+	<title>Statistik Penjualan</title>
+	<link rel="stylesheet" type="text/css" href="style-penjualan.css">
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		p, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		th{
+			background-color: #60A5FA;
+			padding: .5rem 1rem;
+			color:#292929;
+		}
+		td{
+			padding: 1rem;
+			color:white;
+			background-color:#3B82F6;
+		}
+	</style>
 </head>
-<link rel="stylesheet" type="text/css" href="style-penjualan.css">
 
 <body>
 	<div class="penjualan">
@@ -53,37 +76,58 @@ if (!isset($_SESSION['id_toko'])) {
 		</div>
 
 		<?php
-		$query_produk = "SELECT * FROM product WHERE toko_id = '$_SESSION[id_toko]'";
+		$query_produk = "SELECT COUNT(product_id) AS total_produk FROM product WHERE toko_id = '$_SESSION[id_toko]'";
 		$result_produk = mysqli_query(connection(), $query_produk);
-		$total_produk = 0;
-		while ($data_produk = mysqli_fetch_array($result_produk)) {
-			$total_produk++;
-		}
+		$data_produk = mysqli_fetch_array($result_produk);
+		$total_produk = $data_produk['total_produk'];
 
 		$query = "SELECT * FROM toko WHERE owner = '$_SESSION[id]'";
 		$result = mysqli_query(connection(), $query);
 		?>
 		<?php while ($data_toko = mysqli_fetch_array($result)) : ?>
 			<div className="p-6" style="padding: 1.5rem;">
-				<h1 className="text-2xl font-normal text-slate-700" style="font-size: 1.5rem;color: rgb(51 65 85);">Laporan Toko Anda</h1>
+				<h1 style="font-size: 1.5rem;color: rgb(51 65 85);">Laporan Toko Anda</h1>
 				<div>
-					<div className="py-3 [&>*:hover]:cursor-pointer [&>p:hover]:border-mygreen_dark w-min text-mygreen_dark" style="padding: .75rem 0;cursor: pointe;width: min-content;color: #3B82F6;">
-						<p className="p-1 text-xs font-semilight border-b-2 opacity-60 hover:opacity-100" style="padding: .25rem;font-size: .75rem;font-weight: 300;border-bottom: 2px solid #3b82f6;">
+					<div style="padding: .75rem 0;cursor: pointe;width: min-content;color: #3B82F6;">
+						<p style="padding: .25rem;font-size: .75rem;font-weight: 300;border-bottom: 2px solid #3b82f6;">
 							Keseluruhan
 						</p>
 					</div>
-					<div className="py-3" style="padding: .75rem 0;">
-						<div className="py-3 px-6 text-white rounded-xl bg-mygreen_dark w-36" style="padding: .75rem 1.5rem;color: white;border-radius: .75rem;background-color: #3B82F6;width: 9rem;">
+					<div style="padding: .75rem 0;">
+						<div style="padding: .75rem 1.5rem;color: white;border-radius: .75rem;background-color: #3B82F6;width: 9rem;">
 							<h1 style="font-size: 1.25rem;">Total Produk</h1>
-							<span className="text-2xl font-bold" style="font-size: 1.5rem;font-weight: bold;"><?= $total_produk ?></span>
+							<span style="font-size: 1.5rem;font-weight: bold;"><?= $total_produk ?></span>
 						</div>
-						<h1 className="my-3 text-md font-normal text-slate-700" style="margin: .75rem 0;color: rgb(51 65 85);font-size: 1.25rem;">
+						<h1 style="margin: .75rem 0;color: rgb(51 65 85);font-size: 1.25rem;">
 							Pendapatan Total :
-							<span className="font-bold text-xl text-slate-600 tracking-wide" style="font-weight: bold;font-size: 1.25rem;color: rgb(71 85 105);">
+							<span style="font-weight: bold;font-size: 1.25rem;color: rgb(71 85 105);">
 								Rp. <?= $data_toko['pendapatan_total'] ?>
 							</span>
 						</h1>
 					</div>
+					<table cellspacing="0">
+						<thead>
+							<tr>
+								<th style="border-top-left-radius: .75rem;">Produk</th>
+								<th>Stok</th>
+								<th>Terjual</th>
+								<th style="border-top-right-radius: .75rem;">Keuntungan Kotor</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
+						$result_produk_detail = mysqli_query(connection(), "SELECT * FROM product WHERE toko_id = '$_SESSION[id_toko]'");
+						while ($data_produk_detail = mysqli_fetch_array($result_produk_detail)) :
+						?>
+							<tr>
+								<td><?= $data_produk_detail['name'] ?></td>
+								<td><?= $data_produk_detail['qt'] ?></td>
+								<td>1</td>
+								<td>5000</td>
+							</tr>
+						<?php endwhile; ?>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		<?php endwhile; ?>
