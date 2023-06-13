@@ -1,3 +1,13 @@
+<?php
+session_start();
+include '../../conn.php';
+if (!isset($_SESSION['id_toko'])) {
+    header("Location: ../formulir-mitra");
+} elseif (!isset($_SESSION['id'])) {
+    header("Location: ../login");
+}
+$status = isset($_GET['status']) ? $_GET['status'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,50 +43,60 @@
                     </svg>
 
                 </a>
-                <a href="../logout/">
+                <a href="../logout/" style="text-decoration: none;">
                     <div style="color: white;background-color: rgb(248 113 113);padding: .25rem .75rem;border-radius: .5rem;font-weight: bold;box-shadow: 0 1px 2px 0 #fca5a5;">
                         Log Out
                     </div>
                 </a>
             </div>
-            <div style="padding: .75rem;">
-                <div style="padding: .75rem;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
-                    <h1 style="font-size: 1.125rem;font-weight: bold;color: rgb(51 65 85);filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));margin-bottom: .15rem;margin-right: auto;">
-                        Edit Profil Tokomu
-                    </h1>
-                    <img src="../assets/toko/aldamtoko_1686475718.png" className="rounded-full w-[100px] h-[100px]" style="border-radius: 50%;height: 100px;width: 100px;" alt=""></img>
 
-                    <form className="flex flex-col w-full sm:w-96 p-12 text-slate-600" style="display: flex;flex-direction: column;max-width: 24rem;padding: 3rem;color: rgb(71 85 105);">
-                        <div className="p-3 m-6 mt-0 rounded-full relative bg-mygreen_dark/70 hover:bg-mygreen_dark hover:cursor-pointer transition-colors" style="padding: .75rem;margin: 1.5rem;margin-top: 0;border-radius: 2rem;position: relative;background-color: #3ac2fa;cursor: pointer;">
-                            <input type="file" accept=".jpg, .png, .svg, .jfif, .webp" className="absolute hover:cursor-pointer rounded-3xl w-full h-full top-0 left-0 opacity-0 focus:outline-none font-normal text-sm form-control" style="position: absolute;cursor: pointer;border-radius: 1.5rem;width: 100%;height: 100%;top: 0;left: 0;opacity: 0;font-size: .875rem;" />
-                            <div className="flex" style="display: flex;">
-                                <p className="font-bold text-center text-white w-full" style="font-weight: bold;text-align: center;color: white;width: 100%;">
-                                    Unggah Foto Profil
-                                </p>
-                                <div className="bg-white bg-[url('/icons/upload.svg')] absolute -left-3 -top-3 my-auto rounded-full shadow-md w-[40px] h-[40px]"></div>
+            <?php
+            $query = "SELECT * FROM toko WHERE toko_id = '$_SESSION[id_toko]'";
+            $result = mysqli_query(connection(), $query);
+            ?>
+            <?php while ($data_toko = mysqli_fetch_array($result)) : ?>
+                <div style="padding: .75rem;background-color: #dbeafe;">
+                    <div style="padding: .75rem;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <h1 style="font-size: 1.125rem;font-weight: bold;color: rgb(51 65 85);filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));margin-bottom: .15rem;margin-right: auto;">
+                            Edit Profil Tokomu
+                        </h1>
+                        <img src="../assets/toko/<?= $data_toko['image_profile'] ?>" style="border-radius: 50%;height: 100px;width: 100px;" alt=""></img>
+
+                        <form style="display: flex;flex-direction: column;max-width: 24rem;padding: 3rem;color: rgb(71 85 105);">
+                            <div style="padding: .75rem 1.5rem;margin: 1.5rem;margin-top: 0;border-radius: 2rem;position: relative;background-color: #3b82f6;cursor: pointer;">
+                                <input type="file" accept=".jpg, .png, .svg, .jfif, .webp" style="position: absolute;cursor: pointer;border-radius: 1.5rem;width: 100%;height: 100%;top: 0;left: 0;opacity: 0;font-size: .875rem;" />
+                                <div className="flex" style="display: flex;">
+                                    <p style="font-weight: bold;text-align: center;color: white;width: 100%;">
+                                        Unggah Foto Profil
+                                    </p>
+                                    <div style="background-color: white;position: absolute;left: -0.75rem;top: -0.75rem;margin: auto 0;border-radius: 50%;width: 40px;height: 40px;">
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0C14.6957 0 9.60859 2.10714 5.85786 5.85786C2.10714 9.60859 0 14.6957 0 20C0 25.3043 2.10714 30.3914 5.85786 34.1421C9.60859 37.8929 14.6957 40 20 40C25.3043 40 30.3914 37.8929 34.1421 34.1421C37.8929 30.3914 40 25.3043 40 20C40 14.6957 37.8929 9.60859 34.1421 5.85786C30.3914 2.10714 25.3043 0 20 0V0ZM26.608 11.2C26.8395 11.1991 27.0688 11.2438 27.283 11.3317C27.4972 11.4195 27.6919 11.5488 27.856 11.712L29.8912 13.744C30.2182 14.0765 30.4014 14.5241 30.4014 14.9904C30.4014 15.4567 30.2182 15.9043 29.8912 16.2368L28.344 17.7808L27.7504 18.3744L17.44 28.6848L10.6432 30.9504L12.9088 24.1536L23.2448 13.8688L23.2256 13.8496L25.3632 11.712C25.6939 11.3831 26.1416 11.199 26.608 11.2ZM26.608 12.7872C26.5712 12.7872 26.5344 12.8064 26.496 12.8432L24.9248 14.4112L27.2064 16.6592L28.7584 15.1072C28.8336 15.0336 28.8336 14.9472 28.7584 14.8752L26.7264 12.8432C26.7116 12.8266 26.6937 12.8131 26.6736 12.8035C26.6536 12.7939 26.6318 12.7883 26.6096 12.7872H26.608ZM23.8128 15.5632L15.0768 24.256L17.344 26.5216L26.072 17.7904L23.8128 15.5632ZM14.1248 25.568L13.1744 28.4224L16.032 27.4688L14.1248 25.568Z" fill="#FB7777" />
+                                        </svg>
+
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                        <label htmlFor="nama-toko" className="text-sm mb-3 ml-3">
-                            Nama Toko
-                        </label>
-                        <input type="text" id="nama-toko" placeholder="Nama Toko" value="{!isLoading ? namaToko " className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" />
-                        <label htmlFor="id-toko" className="text-sm mb-3 ml-3">
-                            ID Toko
-                        </label>
-                        <input type="text" id="id-toko" placeholder="ID Toko" value="{!isLoading ? idToko : " className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" />
-                        <label htmlFor="alamat" className="text-sm mb-3 ml-3">
-                            Alamat
-                        </label>
-                        <textarea placeholder="Alamat" id="alamat" value="{!isLoading ? alamat : " style="height: 100px" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none overflow-auto font-medium hover:opacity-95 resize-none"></textarea>
-                        <button type="submit" className="p-3 mb-6 rounded-3xl bg-red-400 font-bold text-white hover:bg-red-500/90 transition-colors">
-                            Ubah Profil
-                        </button>
-                    </form>
-                    <div className="text-red-400 px-3 py-1 rounded-xl font-bold hover:bg-red-100 hover:cursor-pointer">
-                        Delete Toko
+                            <label htmlFor="nama-toko" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
+                                Nama Toko
+                            </label>
+                            <input type="text" id="nama-toko" placeholder="Nama Toko" value="<?= $data_toko['name'] ?>" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" style="padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;" />
+                            <label htmlFor="id-toko" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
+                                ID Toko
+                            </label>
+                            <input type="text" id="id-toko" placeholder="ID Toko" value="<?= $data_toko['toko_id'] ?>" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none font-medium hover:opacity-95" style="padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;" />
+                            <label htmlFor="alamat" className="text-sm mb-3 ml-3" style="font-size: .875rem;margin-bottom: .75rem;margin-left: .75rem;">
+                                Alamat
+                            </label>
+                            <textarea placeholder="Alamat" id="alamat" className="py-3 px-6 mb-6 rounded-3xl focus:outline-none overflow-auto font-medium hover:opacity-95 resize-none" style="font-family: sans-serif;height: 100px;padding: .75rem 1.5rem;margin-bottom: 1.5rem;border-radius: 1.5rem;font-weight: 600;border: none;overflow: auto;resize: none;"><?= $data_toko['alamat'] ?></textarea>
+                            <button type=" submit" className="p-3 mb-6 rounded-3xl bg-red-400 font-bold text-white hover:bg-red-500/90 transition-colors" style="padding: .75rem;margin-bottom: 1.5rem;border-radius: 1.5rem;background-color: rgb(248 113 113);font-weight: bold;color: white;border: none;cursor: pointer;">
+                                Ubah Profil
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </div>
+            <?php endwhile; ?>
         </div>
     </div>
 </body>
