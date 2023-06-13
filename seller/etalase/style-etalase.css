@@ -18,6 +18,40 @@
 	visibility: hidden;
 }
 
+.frame-714 {
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	gap: 109px;
+	padding: 12px 10px 20px;
+	position: relative;
+	width: 375px;
+  }
+
+  
+.frame-16 {
+	align-items: center;
+	display: flex;
+	gap: 10px;
+	position: relative;
+	width: fit-content;
+  }
+  
+.frame-15 {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: fit-content;
+  }
+  .frame-701 {
+	align-items: center;
+	display: flex;
+	gap: 4px;
+	position: relative;
+	width: fit-content;
+  }
+
 .background-atas{
 	align-items: center;
 	background-color: #ffffff;
