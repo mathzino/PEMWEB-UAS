@@ -10,12 +10,16 @@ if(isset($_POST)){
         header("Location : index.php");
     }
 
-    $insertTransactionQuery = "insert into transaction (id_transaction,alamat,contact,delivery_type,name,status,toko_id,date) VALUES ( '' , '" . $_POST['alamat'] . "' ,   '" . $_POST['contact'] . "' , '" . "Cash On Delivery" . "' , '" . $_POST['name'] . "' , '".  0  . "' , '" .  $_SESSION['transactionTemp']->toko_id . "' , " . "   CURRENT_DATE " . " ); ";
+    $toko_id=$_SESSION['transactionTemp']->toko_id;
+    $alamat=$_POST['alamat'];
+    $contact=$_POST['contact'];
+    $name=$_POST['name'];
+    $insertTransactionQuery = "insert into transaction  VALUES ( '' , '$name' , '$alamat' ,  '$contact' , '0' , '$toko_id' , CURRENT_DATE , 'Cash On Delivery') ";
     echo $insertTransactionQuery;
     $transactionResult = mysqli_query(connection(), $insertTransactionQuery);
 
     if($transactionResult){
-    $inserted_id_transaction = connection()->insert_id;
+    $inserted_id_transaction =mysqli_insert_id(connection());
 
     echo $inserted_id_transaction;
     $insertTransactionDetailQuery = " INSERT into transaction_detail (id_transaction_detail,id_product , qt , id_transaction) VALUES ('' ," . $_SESSION['transactionTemp']->id_product . " , " .  $_SESSION['transactionTemp']->qt . " , " . $inserted_id_transaction . " ) ";
