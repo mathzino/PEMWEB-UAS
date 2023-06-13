@@ -6,7 +6,7 @@ if (!isset($_SESSION['id_toko'])) {
 } elseif (!isset($_SESSION['id'])) {
     header("Location: ../login");
 }
-print_r($_SESSION);
+// print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
