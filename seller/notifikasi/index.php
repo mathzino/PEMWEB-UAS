@@ -186,9 +186,12 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 								</button>
 							</form>
 
-							<div style="background-color: rgb(248 113 113);padding: .75rem 1.5rem;border-radius: .75rem;cursor: pointer;">
-								Tolak Pesanan
-							</div>
+							<form action="tolak_pesanan.php" method="post">
+								<input type="hidden" name="id_transaksi" value="<?= $data_transaksi['id_transaction'] ?>">
+								<button type="submit" style="border:none;color:white;background-color: rgb(248 113 113);padding: .75rem 1.5rem;border-radius: .75rem;cursor: pointer;">
+									Tolak Pesanan
+								</button>
+							</form>
 						</div>
 					<?php endif; ?>
 					<!-- TERIMA & TOLAK -->

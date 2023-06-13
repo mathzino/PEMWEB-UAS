@@ -26,16 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     // SET KODE MENJADI CLAIMED
-
-    // MENDAPATKAN PENDAPATAN TOKO
-    $query_pendapatan_sekarang = "SELECT pendapatan_total FROM toko WHERE toko_id = '$_SESSION[id_toko]'";
-    $result_pendapatan_sekarang = mysqli_query(connection(), $query_pendapatan_sekarang);
-    $row_pendapatan_sekarang = mysqli_fetch_assoc($result_pendapatan_sekarang);
-    $pendapatan_sekarang = $row_pendapatan_sekarang['pendapatan_total'];
-    // MENDAPATKAN PENDAPATAN TOKO
-
+    
     // UPDATE PENDAPATAN TOKO
-    $query_update_pendapatan = "UPDATE toko SET pendapatan_total = '$pendapatan_sekarang' + '$total' WHERE toko_id = '$_SESSION[id_toko]'";
+    $query_update_pendapatan = "UPDATE toko SET pendapatan_total = pendapatan_total + '$total' WHERE toko_id = '$_SESSION[id_toko]'";
     $result_update_pendapatan = mysqli_query(connection(), $query_update_pendapatan);
     if (!$result_update_pendapatan) {
         $status = 'err_konfirmasi';
@@ -43,6 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     // UPDATE PENDAPATAN TOKO
+
+    //UPDATE STOK BARANG
+    $query_stok = "SELECT * FROM transaction_detail WHERE id_transaction = '$id_transaction'";
+    $result_stok = mysqli_query(connection(), $query_stok);
+    while ($row_stok = mysqli_fetch_assoc($result_stok)) {
+        $query_update_stok = "UPDATE product SET qt = qt - '$row_stok[qt]' WHERE product_id = '$row_stok[id_product]'";
+        $result_update_stok = mysqli_query(connection(), $query_update_stok);
+        if (!$result_update_stok) {
+            $status = 'err_konfirmasi';
+            header('Location: index.php?status=' . $status);
+            exit();
+        }
+    }
+    //UPDATE STOK BARANG
 
     // UPDATE STATUS TRANSAKSI
     $query  = "UPDATE transaction SET status = 2 WHERE transaction.id_transaction = '$id_transaction'";
