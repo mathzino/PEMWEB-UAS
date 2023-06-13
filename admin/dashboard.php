@@ -23,7 +23,16 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 <body>
   <div class="admin-container">
     <h1>Halaman Admin</h1>
-    <a href="./logout.php"><button>Log Out</button></a>
+    <a href="./logout.php"><button type="submit" style="border:none;background-color:red;color:white;cursor:pointer;border-radius:.5rem;padding:.5rem 1rem;">Log Out</button></a>
+    <?php
+    if ($status == 'err') {
+      echo "<p style='color:red'>Aksi Gagal</p>";
+    } elseif ($status == 'success_acc') {
+      echo "<p style='color:green'>Pendaftaran Toko Diterima !</p>";
+    } elseif ($status == 'success_tolak') {
+      echo "<p style='color:red'>Aktivitas Toko Terhenti Sementara !</p>";
+    }
+    ?>
     <table>
       <tr>
         <th>Nama Toko</th>
@@ -41,11 +50,20 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
           <td><?= $data['name'] ?></td>
           <td><?= $data['seller_name'] ?></td>
           <td>Rp.<?= $data['pendapatan_total'] ?></td>
-          <td><?= $data['status'] == 0 ? 'Belum ACC' : 'Ter ACC' ?></td>
+          <td><div style="border-radius:.75rem;padding:0.5rem .25rem;text-align:center;font-weight:bold; <?= $data['status'] == 0 ?'color:rgb(202 138 4);background-color:rgb(254 240 138);':'color:rgb(22 163 74);background-color:rgb(187 247 208)'?>"><?= $data['status'] == 0 ? 'Menunggu' : 'Diterima' ?></div></td>
           <td>
-            <a href="#" class="edit-btn"><i class="fas fa-edit"></i></a>
-            <a href="#" class="delete-btn"><i class="fas fa-trash-alt"></i></a>
-            <a href="#" class="approve-btn"><i class="fas fa-check-circle"></i></a>
+            <?php if ($data['status'] == 1) : ?>
+              <form action="verif_tolak_seller.php" method="POST">
+                <input type="hidden" name="toko_id" value="<?= $data['toko_id'] ?>">
+                <button type="submit" style="border: none;background-color: transparent;cursor: pointer;" onclick="return confirm('Hentikan Aktifitas Toko?');"><i class="fas fa-trash-alt"></i></>
+              </form>
+            <?php endif; ?>
+            <?php if ($data['status'] == 0) : ?>
+              <form action="verif_acc_seller.php" method="POST">
+                <input type="hidden" name="toko_id" value="<?= $data['toko_id'] ?>">
+                <button type="submit" style="border: none;background-color: transparent;cursor: pointer;" onclick="return confirm('Terima Pendaftaran ?')"><i class="fas fa-check-circle"></i></button>
+              </form>
+            <?php endif; ?>
           </td>
         </tr>
       <?php endwhile; ?>
