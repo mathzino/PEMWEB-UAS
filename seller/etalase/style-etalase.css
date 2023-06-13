@@ -3,7 +3,6 @@
 
 .etalase{
 	align-items: flex-start;
-	background-color: #dbeafe;
 	border: 1px none;
 	display: flex;
 	flex-direction: column;
@@ -27,9 +26,17 @@
 	position: relative;
 	width: 375px;
   }
+  .frame-715 {
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	position: relative;
+	width: 375px;
+  }
 
-  
-.frame-16 {
+  .frame-16 {
 	align-items: center;
 	display: flex;
 	gap: 10px;
@@ -37,13 +44,14 @@
 	width: fit-content;
   }
   
-.frame-15 {
+  .frame-15 {
 	align-items: flex-start;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	width: fit-content;
   }
+
   .frame-701 {
 	align-items: center;
 	display: flex;
@@ -68,18 +76,23 @@
 	position: relative;
 }
 
-.toko-kamu{ 
+.toko-kamu {
 	color: black;
-	font-family: 'Inter', sans-serif;
-	font-size: medium;
+	font-family: "Inter", sans-serif;
+	font-size: var(--font-size-xxl);
 	font-weight: 700;
 	letter-spacing: 0.2px;
 	line-height: 22.4px;
-	margin-top: px;
+	margin-top: -1px;
 	position: relative;
 	white-space: nowrap;
-	width: content;
-}
+	width: fit-content;
+  }
+  .valign-text-middle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
 
 
 .layer-pertama{
@@ -87,7 +100,7 @@
 	background-color: #ffffff;
 	display: flex;
 	gap: 109px;
-	padding:;
+	padding:1rem;
 	position: relative;
 	width: 375px;
 }
@@ -155,12 +168,11 @@
 	object-fit: cover;
 	position: relative;
 }
-
 .frame-container {
 	align-items: flex-start;
 	display: flex;
 	min-width: 375px;
-}
+  }
 
 .frame {
 	height: 50px;

@@ -80,7 +80,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 			<a href="../etalase/"><img class="frame" src="../assets/svg/catalog.svg" alt="Frame 57" style="border-bottom: 2px solid #0002;" /></a>
 			<a href="../penjualan/"><img class="frame-717" src="../assets/svg/stats.svg" alt="Frame 717" style="border-bottom: 2px solid #0002;" /></a>
 		</div>
-		<div style="padding: 2rem;width: 100%;">
+		<div style="padding: 2rem;width: 100%;background-color: #dbeafe;min-height: 100vh;">
 			<h1 class="tittle" style="margin: 0;padding: 0;">Notifikasi Anda</h1>
 			<div class="frame-container-1">
 				<div class="frame-8">
@@ -89,7 +89,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 				</div>
 				<!-- FILTER -->
 				<a href="<?= $filter == 'selesai' ? 'index.php' : 'index.php?filter=selesai' ?>" style="text-decoration: none;">
-					<div style="padding: 0 .75rem;font-size: .875rem;border: 1px solid rgb(203 213 225);border-radius: 1.5rem;width: min-content;font-weight: 600;cursor: pointer;<?= $filter == 'selesai' ? 'background-color:#3b82f6;color:white' : 'color: #3B82F6' ?>">Selesai</div>
+					<div style="padding: 0 .75rem;font-size: .875rem;border: 1px solid rgb(203 213 225);border-radius: 1.5rem;width: min-content;font-weight: 600;cursor: pointer;<?= $filter == 'selesai' ? 'background-color:#3b82f6;color:white' : 'color: #3B82F6;background-color:white' ?>">Selesai</div>
 				</a>
 				<!-- FILTER -->
 

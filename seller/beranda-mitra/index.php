@@ -139,7 +139,6 @@ if (!isset($_SESSION['id_toko'])) {
             </div>
         </div>
     </div>
-    </div>
 </body>
 
 </html>
