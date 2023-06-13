@@ -106,7 +106,13 @@ if ($_GET['product_id']) {
 
       <div class="form-group">
         <center><input type="submit" value="Tambah Produk"></center>
-
+      </div>
+    </form>
+    <form action="./verif_hapus_barang.php" method="GET">
+      <div class="form-group">
+        <input type="hidden" name="product_id" value="<?= $data['product_id'] ?>">
+        <input type="hidden" name="image_product_old" value="<?= $data['image'] ?>">
+        <center><button type="submit">Delete Produk</button></center>
       </div>
     </form>
   </div>
