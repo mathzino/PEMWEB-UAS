@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_SESSION['id_toko'])) {
+  header("Location: ../beranda-mitra");
+}
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 ?>
 
@@ -9,11 +13,32 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
   <meta charset="utf-8">
   <title>Form Login</title>
   <link rel="stylesheet" type="text/css" href="stylelogin.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+    }
+
+    p,
+    h1 {
+      margin: 0;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  </style>
 </head>
 
 <body>
-
   <div class="container">
+    <center>
+      <h1 style="margin-bottom: 2rem;">Login Mitra</h1>
+    </center>
     <form action="./verif_login.php" method="post">
       <?php
       if ($status == 'invalid') {
@@ -35,7 +60,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
       <div class="form-group">
         <input type="submit" value="Login">
 
-        <div class="signup-link" style="text-align: center;">
+        <div style="text-align: center;">
           Belum punya akun?<a href="../signup/"> daftar disini</a>
         </div>
 
