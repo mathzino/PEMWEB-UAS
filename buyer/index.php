@@ -6,17 +6,6 @@
 include "../conn.php";
 
 session_start();
-$_SESSION['cart'] = array(array('product_id' => '1'));
-
-
-
-
-
-
-
-
-
-
 
 
 $filter = '';
@@ -43,7 +32,6 @@ JOIN toko ON toko.toko_id=product.toko_id
 JOIN product_uom on product_uom.id_product_uom=product.product_uom " . $filter;
 
 $products = mysqli_query(connection(), $queryGetProducts);
-print_r($products);
 
 
 ?>
@@ -108,7 +96,6 @@ print_r($products);
         ?>
 
         <div style="justify-content: center;display: flex;">
-
 
           <div
             style="width: 18rem;height: 575px;background-color: white;padding: 1.5rem 1.25rem;border-radius: 0.5rem;position: fixed;top: 1.5rem;z-index: 30;">

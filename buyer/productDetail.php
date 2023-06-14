@@ -28,12 +28,6 @@ if ($productArr->num_rows > 0) {
     header("Location: index.php");
 }
 
-
-
-
-
-
-
 ?>
 
 
@@ -57,6 +51,16 @@ if ($productArr->num_rows > 0) {
 
         p {
             margin: 0;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
         }
     </style>
 </head>
@@ -98,8 +102,6 @@ if ($productArr->num_rows > 0) {
                     <div className="lg:h-[300px]" style="padding: 1.25rem 1.75rem 0 1.75rem;flex-direction: column;">
                         <!-- DETAIL -->
                         <div>
-
-                            <!-- TOKO -->
                             <div style="display: flex;align-items: center;">
                                 <span style="margin-right: .25rem;flex-shrink: 0;">
                                     <svg width="16" height="16" viewBox="0 0 12 10" fill="none"
@@ -109,17 +111,16 @@ if ($productArr->num_rows > 0) {
                                             fill="#3B82F6" />
                                     </svg>
                                 </span>
-                                <p style="color: #474747;font-size: 1rem;line-height: 1.5rem;">
+                                <p
+                                    style="font-family: 'Inter'; font-style: italic;font-weight: 400;font-size: 12px;line-height: 15px;color: #9E9E9E;">
                                     <?php echo $product['storeName'] ?>
                                 </p>
                             </div>
-                            <!-- TOKO -->
                             <div>
                                 <p
-                                    style="font-size: 2rem;line-height: 2.5rem;color: #474747;margin-top: .5rem;font-weight: bold;">
+                                    style="font-family: 'Inter';font-style: normal;font-weight: 700;font-size: 24px;line-height: 29px;color: #474747;">
                                     <?php echo $product['name'] ?>
                                 </p>
-                                <!-- RATING -->
                                 <div style="display: flex;gap: .25rem;margin-top: .5rem;">
                                     <?php $i = 0;
                                     $query_star = "SELECT * FROM star WHERE id_product = '$product[product_id]'";
@@ -148,15 +149,12 @@ if ($productArr->num_rows > 0) {
                                     <?php if ($average_star < 1)
                                         echo "  <p style='color:blue ;font-size: 10px'>No review yet</p>" ?>
                                     </div>
-                                    <!-- RATING -->
 
-                                    <!-- HARGA -->
                                     <p
                                         style="font-size: 1rem;line-height: 1.5rem;font-weight: bold;color: #292929;margin-top: 1rem;">
                                         Rp.
                                     <?php echo " " . $product['price'] . " / " . $product['uom'] ?>
                                 </p>
-                                <!-- HARGA -->
                             </div>
 
                             <div style="margin-top: 1rem;">
@@ -166,10 +164,8 @@ if ($productArr->num_rows > 0) {
                             </div>
                         </div>
                     </div>
-                    <!-- CHECKOUT COMP -->
                     <div style="position: fixed;bottom: 0;max-width: 28rem;width: 100%;">
                         <div>
-                            <!-- TAMBAH / KURANG TOTAL -->
                             <div>
                                 <div
                                     style="display: flex;justify-content: flex-end;height: 2.75rem;align-items: center;background-color: #fffe;border-top: 2px solid #0001;padding-top: .5rem;">
@@ -185,9 +181,8 @@ if ($productArr->num_rows > 0) {
 
                                     </div>
                                     <input
-                                        style="cursor: default;border: 1px solid #000;border-radius: .75rem;padding: 0rem 2rem; display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;color: #000;font-weight: bold; width:fit-content"
-                                        type="number" max="100" value=1 id="counter" />
-
+                                        style="cursor: default;border: 1px solid #000;border-radius: .75rem; display: flex;justify-content: center;align-items: center;font-size: 1.125rem;line-height: 1.75rem;color: #000;font-weight: bold; width:80px;text-align:center"
+                                        disable type="number" max="100" value=1 id="counter" />
                                     </input>
                                     <p style="margin-left: 1rem;font-weight: bold;">
                                         <?php echo $product['uom'] ?>
@@ -205,9 +200,6 @@ if ($productArr->num_rows > 0) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- TAMBAH / KURANG TOTAL -->
-
-                            <!-- BELI -->
                             <div>
                                 <div
                                     style="background-color: #fff;display: flex;font-size: 1.5rem;line-height: 2rem;color: white;font-weight: bold;justify-content: space-between;">
@@ -222,44 +214,52 @@ if ($productArr->num_rows > 0) {
                                         <div
                                             style="padding: 1rem 0;background-color: #fff;flex-grow: 1;display: flex;justify-content: center;">
                                             <form method="POST" action="index.php">
+
                                                 <input type="text" hidden name="id_product" value=<?php echo $product['product_id'] ?>>
                                                 <input type="text" hidden name="qt" id="qtForm" value=1>
                                                 <input type="text" hidden name="price" value=<?php echo $product['price'] ?>>
                                                 <input type="text" hidden name="toko_id" value=<?php echo $product["toko_id"] ?>>
                                                 <input type="text" hidden name="buy" value=true>
                                                 <button type="submit"
-                                                    style="border: none;border-radius: 1rem; background-color: #3B82F6;color: white;font-size: 1.5rem;line-height: 2rem;font-weight: bold;padding: 0 2rem;">Beli</button>
+                                                    style="border: none;border-radius: 1rem; background-color: #3B82F6;color: white;font-size: 1.5rem;line-height: 2rem;font-weight: bold;padding: 0 2rem;cursor:pointer ; height:100%">Beli</button>
                                             </form>
                                         </div>
-                                        <!-- {/* */} -->
+
                                         <div
                                             style="padding: .5rem 0;background-color: white;width: 5rem;display: flex;justify-content: center;">
-                                            <button onClick="handleSaveCart"
-                                                style="border: none;background-color: transparent;">
-                                                <div
-                                                    style="border: 1px solid #3B82F6;padding: .5rem;width: fit-content;border-radius: 1rem;padding: .75rem .75rem; display: flex;align-items: center;justify-content: center;background-color: #3B82F6;">
-                                                    <svg width="21" height="21" viewBox="0 0 15 17" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M2.05163 6.88587C2.08017 6.53023 2.24162 6.1984 2.50382 5.95645C2.76602 5.7145 3.10973 5.58019 3.4665 5.58026H12.0225C12.3792 5.58019 12.723 5.7145 12.9852 5.95645C13.2474 6.1984 13.4088 6.53023 13.4374 6.88587L14.0071 13.9815C14.0228 14.1768 13.9979 14.3732 13.9339 14.5584C13.87 14.7435 13.7684 14.9135 13.6355 15.0574C13.5027 15.2014 13.3415 15.3163 13.1621 15.3949C12.9826 15.4735 12.7889 15.5142 12.593 15.5142H2.89601C2.70012 15.5142 2.50635 15.4735 2.32692 15.3949C2.14749 15.3163 1.98628 15.2014 1.85344 15.0574C1.7206 14.9135 1.619 14.7435 1.55505 14.5584C1.4911 14.3732 1.46617 14.1768 1.48184 13.9815L2.05163 6.88587V6.88587Z"
-                                                            stroke="#fff" strokeWidth="2" strokeLinecap="round"
-                                                            strokeLinejoin="round" />
-                                                        <path
-                                                            d="M10.5828 7.70896V4.16112C10.5828 3.40836 10.2838 2.68644 9.75148 2.15416C9.2192 1.62188 8.49728 1.32285 7.74452 1.32285C6.99177 1.32285 6.26984 1.62188 5.73756 2.15416C5.20528 2.68644 4.90625 3.40836 4.90625 4.16112V7.70896"
-                                                            stroke="#fff" strokeWidth="2" strokeLinecap="round"
-                                                            strokeLinejoin="round" />
-                                                    </svg>
-                                                </div>
-                                            </button>
+                                            <form action="./action/saveCart.php" method="post"
+                                                style="display:flex; align-items: center;">
+                                                <input type="text" hidden name="id_product" value=<?php echo $product['product_id'] ?>>
+                                                <input type="text" hidden name="qt" id="qtForm" value=1>
+                                                <input type="text" hidden name="price" value=<?php echo $product['price'] ?>>
+                                                <input type="text" hidden name="toko_id" value=<?php echo $product["toko_id"] ?>>
+                                                <input type="text" hidden name="buy" value=true>
+                                                <button type="submit"
+                                                    style="border: none;background-color: transparent;cursor:pointer">
+                                                    <div
+                                                        style="border: 1px solid #3B82F6;padding: .5rem;width: fit-content;border-radius: 1rem;padding: .75rem .75rem; display: flex;align-items: center;justify-content: center;background-color: #3B82F6;">
+                                                        <svg width="21" height="21" viewBox="0 0 15 17" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M2.05163 6.88587C2.08017 6.53023 2.24162 6.1984 2.50382 5.95645C2.76602 5.7145 3.10973 5.58019 3.4665 5.58026H12.0225C12.3792 5.58019 12.723 5.7145 12.9852 5.95645C13.2474 6.1984 13.4088 6.53023 13.4374 6.88587L14.0071 13.9815C14.0228 14.1768 13.9979 14.3732 13.9339 14.5584C13.87 14.7435 13.7684 14.9135 13.6355 15.0574C13.5027 15.2014 13.3415 15.3163 13.1621 15.3949C12.9826 15.4735 12.7889 15.5142 12.593 15.5142H2.89601C2.70012 15.5142 2.50635 15.4735 2.32692 15.3949C2.14749 15.3163 1.98628 15.2014 1.85344 15.0574C1.7206 14.9135 1.619 14.7435 1.55505 14.5584C1.4911 14.3732 1.46617 14.1768 1.48184 13.9815L2.05163 6.88587V6.88587Z"
+                                                                stroke="#fff" strokeWidth="2" strokeLinecap="round"
+                                                                strokeLinejoin="round" />
+                                                            <path
+                                                                d="M10.5828 7.70896V4.16112C10.5828 3.40836 10.2838 2.68644 9.75148 2.15416C9.2192 1.62188 8.49728 1.32285 7.74452 1.32285C6.99177 1.32285 6.26984 1.62188 5.73756 2.15416C5.20528 2.68644 4.90625 3.40836 4.90625 4.16112V7.70896"
+                                                                stroke="#fff" strokeWidth="2" strokeLinecap="round"
+                                                                strokeLinejoin="round" />
+                                                        </svg>
+                                                    </div>
+                                                </button>
+                                            </form>
+
                                         </div>
-                                        <!-- {/* */} -->
                                     </div>
                                 </div>
                             </div>
-                            <!-- BELI -->
                         </div>
                     </div>
-                    <!-- CHECKOUT COMP -->
+
                 </div>
             </div>
         </div>

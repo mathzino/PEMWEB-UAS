@@ -8,7 +8,7 @@ function connection()
     $dbUser = 'root';
     // $dbPass = $db_config["DB_PASSWORD"];
     $dbPass = '';
-    $dbName = "uas_pemweb";
+    $dbName = "uas_pemwebb";
 
     $conn = mysqli_connect($dbServer, $dbUser, $dbPass);
 
