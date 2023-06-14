@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $image_profile_old = mysqli_real_escape_string(connection(), $_POST['image_profile_old']);
     $image_profile = $_FILES['image_profile_new'];
 
-    $directory_upload = "../assets/toko/";
+    $directory_upload = "../assets/";
 
     if (!empty($image_profile['name'])) {
         if (file_exists($directory_upload . $image_profile_old)) {
