@@ -293,6 +293,8 @@ $products = mysqli_query(connection(), $queryGetProducts);
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
             </div>
+            <form action="" method="GET">
+
 
             <input type="search" id="default-search" style="
                   display: block;
@@ -306,12 +308,15 @@ $products = mysqli_query(connection(), $queryGetProducts);
                   background-color: rgb(249 250 251);
                   border-radius: 60px;
                   border: 1px solid rgb(209 213 219);
-                " placeholder="Cari sayur, buah, makanan dan lain-lain" required name="search" />
+                " placeholder="Cari sayur, buah, makanan dan lain-lain" value="<?= $keyword ?>" name="searchKeyword" />
+              <input type="submit" value="search" style="display:none;">
+            </form>
+
           </div>
         </div>
       </div>
       <!-- CATEGORY -->
-      <div style="padding: 0 1.25rem">
+      <!-- <div style="padding: 0 1.25rem">
         <div style="display: flex; align-items: center">
           <div
             style="font-size: 0.75rem; line-height: 1rem; margin-right: 0.5rem; display: flex; font-weight: 400; color: #3b82f6">
@@ -324,7 +329,7 @@ $products = mysqli_query(connection(), $queryGetProducts);
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- PRODUK -->
       <div style="margin-top: 1rem">
         <div
