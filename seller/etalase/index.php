@@ -91,7 +91,11 @@ if (!isset($_SESSION['id_toko'])) {
 					</div>
 					<div style="display: flex;align-items: center;gap: .75rem;">
 						<span style="color: rgb(51 65 85);font-size: .75rem;font-weight: 500;">
-							2
+							<?php
+							$query_jumlah = "SELECT COUNT(product_id) AS total_produk FROM product";
+							$result_jumlah = mysqli_query(connection(), $query_jumlah);
+							$data_jumlah = mysqli_fetch_array($result_jumlah);
+							echo $data_jumlah['total_produk'] ?>
 						</span>
 						<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0.764331 10L0 9.27007L4.50956 5L0 0.729927L0.764331 -4.76836e-07L6 5L0.764331 10Z" fill="black" />

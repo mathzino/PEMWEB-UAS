@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rating = $_POST['rating'] > 5 ? 5 : $_POST['rating'];
     $rating = $rating < 1 ? 1 : $rating;
 
-    $query = "INSERT INTO star VALUES('','$id_produk','$rating')";
+    $query = "INSERT INTO star VALUES(null,'$id_produk','$rating')";
 
     $result = mysqli_query(connection(), $query);
     if ($result) {

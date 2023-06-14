@@ -17,7 +17,7 @@ if (isset($_POST)) {
     $contact = $_POST['contact'];
     $name = $_POST['name'];
     $id_transaction = generateRandomId();
-    $insertTransactionQuery = "insert into transaction  VALUES ( '$id_transaction' , '$name' , '$alamat' ,  '$contact' , '0' , '$toko_id' , CURRENT_DATE , 'Cash On Delivery') ";
+    $insertTransactionQuery = "insert into transaction  VALUES ( '$id_transaction' , '$name' , '$alamat' ,  '$contact' , '0' , '$toko_id' , NOW() + INTERVAL 7 HOUR , 'Cash On Delivery') ";
     $transactionResult = mysqli_query(connection(), $insertTransactionQuery);
     $random_code = generateRandomCode();
     $id_code = generateRandomId();
@@ -29,7 +29,7 @@ if (isset($_POST)) {
         foreach($_SESSION['transactionTemp']->products as $product){
             $id_transaction_detail = generateRandomId();
             print_r(json_encode($product));
-            $insertTransactionDetailQuery = " INSERT into transaction_detail (id_transaction_detail,id_product , qt , id_transaction) VALUES ('$id_transaction_detail' ," . $product->id_product . " , " . $product->qt . " , " . $id_transaction . " ) ";
+            $insertTransactionDetailQuery = " INSERT into transaction_detail (id_transaction_detail,id_product , qt , id_transaction) VALUES (null ," . $product->id_product . " , " . $product->qt . " , " . $id_transaction . " ) ";
             $transactionDetailResult = mysqli_query(connection(), $insertTransactionDetailQuery);
         }
        
