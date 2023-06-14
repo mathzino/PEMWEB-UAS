@@ -26,9 +26,13 @@ if (isset($_POST)) {
 
     if ($transactionResult) {
 
-        $id_transaction_detail = generateRandomId();
-        $insertTransactionDetailQuery = " INSERT into transaction_detail (id_transaction_detail,id_product , qt , id_transaction) VALUES ('$id_transaction_detail' ," . $_SESSION['transactionTemp']->id_product . " , " . $_SESSION['transactionTemp']->qt . " , " . $id_transaction . " ) ";
-        $transactionDetailResult = mysqli_query(connection(), $insertTransactionDetailQuery);
+        foreach($_SESSION['transactionTemp']->products as $product){
+            $id_transaction_detail = generateRandomId();
+            print_r(json_encode($product));
+            $insertTransactionDetailQuery = " INSERT into transaction_detail (id_transaction_detail,id_product , qt , id_transaction) VALUES ('$id_transaction_detail' ," . $product->id_product . " , " . $product->qt . " , " . $id_transaction . " ) ";
+            $transactionDetailResult = mysqli_query(connection(), $insertTransactionDetailQuery);
+        }
+       
 
 
         if (!isset($_SESSION['notif']) || !is_array($_SESSION['notif'])) {

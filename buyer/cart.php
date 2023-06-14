@@ -51,7 +51,7 @@ include "../conn.php";
           <div style="margin-top: 0.5rem">
             <div style="display: flex; justify-content: space-between">
               <div style="width: 6rem; height: 1.75rem; background-color: #dbeafe; border-radius: 1.125rem">
-                <a href="/seller"
+                <a href="../seller/login"
                   style="background: #3b82f6; padding: 16px 6px; text-align: center; border-radius: 24px">
                   <p
                     style="font-family: 'Inter'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 126.02%; color: white; text-decoration: none">
@@ -66,7 +66,47 @@ include "../conn.php";
                     <?php
                     if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
                       ?>
-                      <div style="
+                                          <div style="
+                          height: 1.25rem;
+                          width: 1.25rem;
+                          padding: 0.1rem;
+                          background-color: #fb7777;
+                          border-radius: 100%;
+                          position: absolute;
+                          right: -5px;
+                          top: -5px;
+                          font-size: 8px;
+                          text-align: center;
+                          color: white;
+                          display: flex;
+                          align-items: center;
+                          text-align: center;
+                          justify-content: center;
+                        ">
+
+              <?php
+              echo count($_SESSION['cart']); ?>
+            </div>
+            <?php
+
+                    } ?>
+                    <svg width="17" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M2.05163 6.88587C2.08017 6.53023 2.24162 6.1984 2.50382 5.95645C2.76602 5.7145 3.10973 5.58019 3.4665 5.58026H12.0225C12.3792 5.58019 12.723 5.7145 12.9852 5.95645C13.2474 6.1984 13.4088 6.53023 13.4374 6.88587L14.0071 13.9815C14.0228 14.1768 13.9979 14.3732 13.9339 14.5584C13.87 14.7435 13.7684 14.9135 13.6355 15.0574C13.5027 15.2014 13.3415 15.3163 13.1621 15.3949C12.9826 15.4735 12.7889 15.5142 12.593 15.5142H2.89601C2.70012 15.5142 2.50635 15.4735 2.32692 15.3949C2.14749 15.3163 1.98628 15.2014 1.85344 15.0574C1.7206 14.9135 1.619 14.7435 1.55505 14.5584C1.4911 14.3732 1.46617 14.1768 1.48184 13.9815L2.05163 6.88587V6.88587Z"
+                        stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M10.5828 7.70896V4.16112C10.5828 3.40836 10.2838 2.68644 9.75148 2.15416C9.2192 1.62188 8.49728 1.32285 7.74452 1.32285C6.99177 1.32285 6.26984 1.62188 5.73756 2.15416C5.20528 2.68644 4.90625 3.40836 4.90625 4.16112V7.70896"
+                        stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </a>
+                <a href="./notify.php">
+                  <div
+                    style="border: 1px solid #3b82f6; height: 2.25rem; width: 2.25rem; border-radius: 100%; display: flex; align-items: center; justify-content: center; position: relative">
+                    <?php
+                    if (isset($_SESSION['notif']) && count($_SESSION['notif']) > 0) {
+                      ?>
+                            <div style="
                           height: 1.25rem;
                           width: 1.25rem;
                           padding: 0.1rem;
@@ -85,43 +125,18 @@ include "../conn.php";
                         ">
 
                         <?php
-                        echo count($_SESSION['cart']); ?>
+                        echo count($_SESSION['notif']); ?>
                       </div>
                       <?php
 
                     } ?>
-                    <svg width="17" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
-                        d="M2.05163 6.88587C2.08017 6.53023 2.24162 6.1984 2.50382 5.95645C2.76602 5.7145 3.10973 5.58019 3.4665 5.58026H12.0225C12.3792 5.58019 12.723 5.7145 12.9852 5.95645C13.2474 6.1984 13.4088 6.53023 13.4374 6.88587L14.0071 13.9815C14.0228 14.1768 13.9979 14.3732 13.9339 14.5584C13.87 14.7435 13.7684 14.9135 13.6355 15.0574C13.5027 15.2014 13.3415 15.3163 13.1621 15.3949C12.9826 15.4735 12.7889 15.5142 12.593 15.5142H2.89601C2.70012 15.5142 2.50635 15.4735 2.32692 15.3949C2.14749 15.3163 1.98628 15.2014 1.85344 15.0574C1.7206 14.9135 1.619 14.7435 1.55505 14.5584C1.4911 14.3732 1.46617 14.1768 1.48184 13.9815L2.05163 6.88587V6.88587Z"
-                        stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      <path
-                        d="M10.5828 7.70896V4.16112C10.5828 3.40836 10.2838 2.68644 9.75148 2.15416C9.2192 1.62188 8.49728 1.32285 7.74452 1.32285C6.99177 1.32285 6.26984 1.62188 5.73756 2.15416C5.20528 2.68644 4.90625 3.40836 4.90625 4.16112V7.70896"
-                        stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        d="M13.7344 14.75H13.2422V7.77734C13.2422 4.88369 11.1032 2.49248 8.32031 2.09463V1.29688C8.32031 0.843652 7.95322 0.476562 7.5 0.476562C7.04678 0.476562 6.67969 0.843652 6.67969 1.29688V2.09463C3.89678 2.49248 1.75781 4.88369 1.75781 7.77734V14.75H1.26562C0.902637 14.75 0.609375 15.0433 0.609375 15.4062V16.0625C0.609375 16.1527 0.683203 16.2266 0.773438 16.2266H5.20312C5.20312 17.4939 6.23262 18.5234 7.5 18.5234C8.76738 18.5234 9.79688 17.4939 9.79688 16.2266H14.2266C14.3168 16.2266 14.3906 16.1527 14.3906 16.0625V15.4062C14.3906 15.0433 14.0974 14.75 13.7344 14.75ZM7.5 17.2109C6.95654 17.2109 6.51562 16.77 6.51562 16.2266H8.48438C8.48438 16.77 8.04346 17.2109 7.5 17.2109ZM3.23438 14.75V7.77734C3.23438 6.63711 3.67734 5.5666 4.4833 4.76064C5.28926 3.95469 6.35977 3.51172 7.5 3.51172C8.64023 3.51172 9.71074 3.95469 10.5167 4.76064C11.3227 5.5666 11.7656 6.63711 11.7656 7.77734V14.75H3.23438Z"
+                        fill="#3B82F6" />
                     </svg>
                   </div>
                 </a>
-                <!-- <Notifcircle colorStroke="#618D80" /> -->
-                <a href="./notify.php">
-                  <a href="/cart">
-                    <div
-                      style="border-color: #adcec4; padding: 0.5rem; width: fit-content; border-radius: 9999px; border: 1px solid #adcec4; display: flex; align-items: center; justify-content: center; position: relative">
-                      <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M16.7344 15.75H16.2422V8.77734C16.2422 5.88369 14.1032 3.49248 11.3203 3.09463V2.29688C11.3203 1.84365 10.9532 1.47656 10.5 1.47656C10.0468 1.47656 9.67969 1.84365 9.67969 2.29688V3.09463C6.89678 3.49248 4.75781 5.88369 4.75781 8.77734V15.75H4.26562C3.90264 15.75 3.60938 16.0433 3.60938 16.4062V17.0625C3.60938 17.1527 3.6832 17.2266 3.77344 17.2266H8.20312C8.20312 18.4939 9.23262 19.5234 10.5 19.5234C11.7674 19.5234 12.7969 18.4939 12.7969 17.2266H17.2266C17.3168 17.2266 17.3906 17.1527 17.3906 17.0625V16.4062C17.3906 16.0433 17.0974 15.75 16.7344 15.75ZM10.5 18.2109C9.95654 18.2109 9.51562 17.77 9.51562 17.2266H11.4844C11.4844 17.77 11.0435 18.2109 10.5 18.2109ZM6.23438 15.75V8.77734C6.23438 7.63711 6.67734 6.5666 7.4833 5.76064C8.28926 4.95469 9.35977 4.51172 10.5 4.51172C11.6402 4.51172 12.7107 4.95469 13.5167 5.76064C14.3227 6.5666 14.7656 7.63711 14.7656 8.77734V15.75H6.23438Z"
-                          fill="#3B82F6" />
-                      </svg>
-                    </div>
-                  </a>
-                  <a href="/cart">
-                    <div className="p-2 w-fit rounded-full border  flex items-center justify-center relative"
-                      style="border-color: #adcec4; padding: 0.5rem; width: fit-content; border-radius: 9999px; border: 1px solid #adcec4; display: flex; align-items: center; justify-content: center; position: relative">
-                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M7.65015 3.90833C7.65015 4.15533 7.74827 4.39221 7.92292 4.56686C8.09757 4.74152 8.33446 4.83964 8.58145 4.83964C8.82845 4.83964 9.06533 4.74152 9.23999 4.56686C9.41464 4.39221 9.51276 4.15533 9.51276 3.90833C9.51276 3.66133 9.41464 3.42445 9.23999 3.24979C9.06533 3.07514 8.82845 2.97702 8.58145 2.97702C8.33446 2.97702 8.09757 3.07514 7.92292 3.24979C7.74827 3.42445 7.65015 3.66133 7.65015 3.90833ZM7.65015 8.56487C7.65015 8.81187 7.74827 9.04875 7.92292 9.2234C8.09757 9.39806 8.33446 9.49617 8.58145 9.49617C8.82845 9.49617 9.06533 9.39806 9.23999 9.2234C9.41464 9.04875 9.51276 8.81187 9.51276 8.56487C9.51276 8.31787 9.41464 8.08099 9.23999 7.90633C9.06533 7.73168 8.82845 7.63356 8.58145 7.63356C8.33446 7.63356 8.09757 7.73168 7.92292 7.90633C7.74827 8.08099 7.65015 8.31787 7.65015 8.56487ZM7.65015 13.2214C7.65015 13.4684 7.74827 13.7053 7.92292 13.8799C8.09757 14.0546 8.33446 14.1527 8.58145 14.1527C8.82845 14.1527 9.06533 14.0546 9.23999 13.8799C9.41464 13.7053 9.51276 13.4684 9.51276 13.2214C9.51276 12.9744 9.41464 12.7375 9.23999 12.5629C9.06533 12.3882 8.82845 12.2901 8.58145 12.2901C8.33446 12.2901 8.09757 12.3882 7.92292 12.5629C7.74827 12.7375 7.65015 12.9744 7.65015 13.2214Z"
-                          fill="#3B82F6" />
-                      </svg>
-                    </div>
-                  </a>
                   <!--  -->
               </div>
             </div>
@@ -178,9 +193,14 @@ include "../conn.php";
                     <a href="./cartDetail.php?toko_id=<?php echo $tokoData["toko_id"] ?>"
                       style="padding: 6px 8px; border-radius: 8px; font-family: 'Inter'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 15px; color: #000000; background-color: #ffd600">
                       Detail</a>
-                    <div
-                      style="padding: 6px 8px; border-radius: 8px; font-family: 'Inter'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 15px; color: #000000; background-color: #fb7777">
-                      Chekout</div>
+                    <form action="index.php" method="POST">
+                        <input type="text" hidden name="toko_id" value=<?php echo $toko->toko_id?> >
+                        <input type="text" hidden name="buyfromcart" value=true >
+                        <button
+                        style="cursor:pointer;padding: 6px 8px; border-radius: 8px; font-family: 'Inter'; font-style: normal; font-weight: 700; font-size: 12px; line-height: 15px; color: #000000; background-color: #fb7777">
+                        Chekcout
+                      </button>
+                      </form>
                   </div>
                 </div>
               </div>
