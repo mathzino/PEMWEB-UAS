@@ -3,7 +3,6 @@ session_start();
 include "../conn.php";
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -157,6 +156,9 @@ include "../conn.php";
           <!--  -->
           <!-- CARD DETAIL CHECKOUT -->
           <?php
+          if(isset($_SESSION['cart'])){
+
+         
           foreach ($_SESSION['cart'] as $toko) {
             $tokoQuery = "SELECT * FROM `toko` WHERE toko_id =$toko->toko_id";
             $getToko = mysqli_query(connection(), $tokoQuery);
@@ -207,7 +209,7 @@ include "../conn.php";
             </div>
 
             <?php
-          }
+          } }
           ?>
         </div>
       </div>
