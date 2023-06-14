@@ -62,7 +62,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
 		<?php while ($data = mysqli_fetch_array($result)) : ?>
 			<div class="frame-714">
 				<div class="frame-16">
-					<img src="../assets/toko/<?= $data['image_profile'] ?>" alt="foto" style="height: 50px;min-width: 50px;object-fit: cover;position: relative;border-radius: 100%;" />
+					<img src="../assets/<?= $data['image_profile'] ?>" alt="foto" style="height: 50px;min-width: 50px;object-fit: cover;position: relative;border-radius: 100%;" />
 					<div class="frame-15">
 						<div class="valign-text-middle" style="font-weight: bold;font-size: 1.25rem;"><?= $data['name'] ?></div>
 						<div class="frame-701">

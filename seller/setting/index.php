@@ -60,7 +60,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : '';
                             Edit Profil Tokomu
                         </h1>
 
-                        <img src="../assets/toko/<?= $data_toko['image_profile'] ?>" style="border-radius: 50%;height: 100px;width: 100px;margin-top: 1.5rem;" alt="foto"></img>
+                        <img src="../assets/<?= $data_toko['image_profile'] ?>" style="border-radius: 50%;height: 100px;width: 100px;margin-top: 1.5rem;" alt="foto"></img>
 
 
                         <form style="display: flex;flex-direction: column;max-width: 24rem;padding: 3rem;color: rgb(71 85 105);" action="verif_setting.php" method="POST" enctype="multipart/form-data">

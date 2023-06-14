@@ -56,7 +56,7 @@ if (!isset($_SESSION['id_toko'])) {
 		<?php while ($data = mysqli_fetch_array($result)) : ?>
 			<div class="frame-714">
 				<div class="frame-16">
-					<img src="../assets/toko/<?= $data['image_profile'] ?>" alt="Profil" style="height: 50px;min-width: 50px;object-fit: cover;position: relative;border-radius: 100%;" />
+					<img src="../assets/<?= $data['image_profile'] ?>" alt="Profil" style="height: 50px;min-width: 50px;object-fit: cover;position: relative;border-radius: 100%;" />
 					<div class="frame-15">
 						<div class="valign-text-middle" style="font-weight: bold;font-size: 1.25rem;"><?= $data['name'] ?></div>
 						<div class="frame-701">
@@ -105,7 +105,7 @@ if (!isset($_SESSION['id_toko'])) {
 							</span>
 						</h1>
 					</div>
-					<table cellspacing="0">
+					<!-- <table cellspacing="0">
 						<thead>
 							<tr>
 								<th style="border-top-left-radius: .75rem;">Produk</th>
@@ -115,19 +115,19 @@ if (!isset($_SESSION['id_toko'])) {
 							</tr>
 						</thead>
 						<tbody>
-						<?php
+						<php
 						$result_produk_detail = mysqli_query(connection(), "SELECT * FROM product WHERE toko_id = '$_SESSION[id_toko]'");
 						while ($data_produk_detail = mysqli_fetch_array($result_produk_detail)) :
 						?>
 							<tr>
-								<td><?= $data_produk_detail['name'] ?></td>
-								<td><?= $data_produk_detail['qt'] ?></td>
+								<td><= $data_produk_detail['name'] ?></td>
+								<td><= $data_produk_detail['qt'] ?></td>
 								<td>1</td>
 								<td>5000</td>
 							</tr>
-						<?php endwhile; ?>
+						<php endwhile; ?>
 						</tbody>
-					</table>
+					</table> -->
 				</div>
 			</div>
 		<?php endwhile; ?>

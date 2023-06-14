@@ -308,7 +308,7 @@ $products = mysqli_query(connection(), $queryGetProducts);
                   background-color: rgb(249 250 251);
                   border-radius: 60px;
                   border: 1px solid rgb(209 213 219);
-                " placeholder="Cari sayur, buah, makanan dan lain-lain" value="<?= $keyword ?>" name="searchKeyword" />
+                " placeholder="Cari sayur, buah, makanan dan lain-lain" value="<?= isset($_GET['searchKeyword']) ? $keyword : '' ?>" name="searchKeyword" />
               <input type="submit" value="search" style="display:none;">
             </form>
 
