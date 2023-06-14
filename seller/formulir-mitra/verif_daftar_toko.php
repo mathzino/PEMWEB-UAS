@@ -19,13 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php?status=err_upload');
     } else {
         // query SQL
-        $query = "INSERT INTO toko VALUES('','$namatoko','$alamat','$id_seller','$nama_file',0,0)";
+        $query = "INSERT INTO toko VALUES(null,'$namatoko','$alamat','$id_seller','$nama_file',0,0)";
 
         // eksekusi query
         $result = mysqli_query(connection(), $query);
         if ($result) {
-            $inserted_id = mysqli_insert_id(connection());
-            $_SESSION['id_toko'] = $inserted_id;
+            $query_toko  = "SELECT * FROM toko WHERE owner = '$id_seller'";
+            $result_toko = mysqli_query(connection(), $query_toko);
+            $row_toko = mysqli_fetch_assoc($result_toko);
+            $_SESSION['id_toko'] = $row_toko['toko_id'];
             header('Location: ../beranda-mitra/?status=daftar_toko');
         } else {
             $status = 'err';

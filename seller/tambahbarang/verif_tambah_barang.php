@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php?status=err_upload');
     } else {
         // query SQL
-        $query = "INSERT INTO product VALUES('','$id_toko','$namaproduk','$harga','$jumlah', '$uom', '$kategori', '$nama_file','$deskripsi')";
+        $query = "INSERT INTO product VALUES(null,'$id_toko','$namaproduk','$harga','$jumlah', '$uom', '$kategori', '$nama_file','$deskripsi')";
 
         // eksekusi query
         $result = mysqli_query(connection(), $query);

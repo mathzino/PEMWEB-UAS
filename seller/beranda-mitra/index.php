@@ -60,6 +60,11 @@ if (!isset($_SESSION['id_toko'])) {
                             <div class="ellipse-11"></div>
                             <div class="online valign-text-middle">Online</div>
                         </div>
+                        <?php if($data['status'] == 0 ):?>
+                        <div>
+                            <p style="color:red;">Toko Anda Belum Diverifikasi</p>
+                        </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

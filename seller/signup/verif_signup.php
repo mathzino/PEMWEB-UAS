@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $password = password_hash($password, PASSWORD_DEFAULT);
         //query SQL
-        $query = "INSERT INTO seller VALUES('','$username','$name','$email','$password')";
-
+        $query = "INSERT INTO seller VALUES(null,'$username','$name','$email','$password')";
         //eksekusi query
         $result = mysqli_query(connection(), $query);
         if ($result) {
